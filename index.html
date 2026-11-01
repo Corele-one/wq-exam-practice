@@ -1,0 +1,3621 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="微处理器课程练习：104道分章填空、18道汇编程序填空，支持错题复习与进度备份。"><link rel="icon" href="data:,">
+<title>微处理器 · 练习工作台</title>
+<style>
+:root{--ink:#172d35;--muted:#63777c;--line:#dce6e4;--paper:#fff;--bg:#f4f7f5;--green:#116e61;--mint:#def1e9;--nav:#17363a;--amber:#a86b20;--red:#aa3c39;--mono:ui-monospace,SFMono-Regular,Consolas,monospace}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}button,input,select,textarea{font:inherit}button,a,input,select,textarea{outline-offset:4px}button{cursor:pointer;border:1px solid var(--line);background:#fff;border-radius:7px;padding:8px 13px;color:var(--ink)}button:hover{border-color:var(--green)}button:disabled{opacity:.4;cursor:default}button.active,.primary{background:var(--green);color:#fff;border-color:var(--green)}button:focus-visible,a:focus-visible{outline:3px solid #e0b967}a{color:var(--green);text-decoration:none}a:hover{text-decoration:underline}.app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}.side{background:var(--nav);color:#d2e4e1;padding:30px 22px;position:sticky;top:0;height:100vh;overflow:auto}.brand{font-size:23px;font-weight:730;letter-spacing:1px;color:#fff}.brand small{display:block;font-size:11px;letter-spacing:2px;color:#9bc0b8;font-weight:500;margin:4px 0 28px}.side-label{font-size:11px;letter-spacing:2px;color:#8db2ab;margin:26px 0 10px}.nav-item{display:block;width:100%;text-align:left;background:none;border:0;color:#d2e4e1;padding:11px 9px;margin:3px 0;font-size:13px;line-height:1.55}.nav-item.active{background:#315750;color:white}.nav-num{color:#83ada3;margin-right:10px;font-family:var(--mono)}.side .download{display:block;font-size:13px;padding:7px;color:#d7e8e3}.side-footer{border-top:1px solid #365356;font-size:11px;color:#a2bcb7;margin-top:25px;padding-top:15px}.main{max-width:1180px;padding:42px 48px;width:100%;margin:auto}.eyebrow{color:var(--green);font-size:11px;font-weight:700;letter-spacing:2px}h1{font-size:32px;margin:4px 0 9px;line-height:1.35}h2{font-size:19px;margin:0}p{margin:8px 0}.intro{color:var(--muted);max-width:760px;font-size:14px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0}.stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 19px}.stat strong{font-size:26px;font-weight:650;line-height:1.3}.stat span{display:block;font-size:12px;color:var(--muted)}.toolbar{background:#fff;padding:18px;border:1px solid var(--line);border-radius:10px;margin:18px 0}.tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.tools+.tools{margin-top:12px}.seg{display:flex;gap:5px}.search{flex:1;min-width:180px}input[type=search],select{background:#f8faf9;border:1px solid var(--line);border-radius:6px;padding:8px 11px;color:var(--ink)}input[type=search]{width:100%}.check-label{font-size:13px;display:flex;gap:5px;align-items:center;white-space:nowrap}.results-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:24px 0 14px}.count{color:var(--muted);font-size:12px}.q-card{padding:25px 27px;border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:18px;box-shadow:0 2px 8px #17363a03}.q-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px}.tags{display:flex;gap:7px;flex-wrap:wrap;font-size:11px}.tag{background:#edf4f1;padding:2px 8px;border-radius:4px;color:#42675f}.tag.code{background:#fcf1df;color:#88602c}.q-id{font-family:var(--mono);color:var(--muted);font-size:12px}.star{border:0;padding:2px 7px;font-size:20px;color:#879993;line-height:1.5}.star.on{color:#bc8124}.question{font-size:16px;line-height:2.4;margin:8px 0 14px}.blank{border:1px solid #b9d0c9;background:#f6faf8;border-radius:5px;padding:4px 8px;width:170px;max-width:100%;color:var(--ink);font-family:inherit;line-height:1.7}.blank:focus{border-color:var(--green);background:#fff;outline:2px solid #b6dfd2}.blank.good{background:#edf8f1;border-color:#50a47b}.blank.bad{background:#fff1ed;border-color:#cd7b68}.status{font-size:12px;margin-left:5px}.goodtext{color:#18744c}.badtext{color:var(--red)}.codebox{background:#142d32;color:#d8e8e4;padding:20px;border-radius:8px;overflow:auto;font:12px/1.8 var(--mono);margin:15px 0;tab-size:4;white-space:pre}.slot{background:#40534e;color:#ffdf92;padding:2px 4px;border-radius:3px;font-weight:600}.answers-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:15px 0}.answer-cell{display:flex;align-items:center;gap:8px;font-size:12px}.answer-cell .blank{width:100%;min-width:0;font-family:var(--mono);font-size:13px}.num{color:var(--muted);font-family:var(--mono);width:21px;flex:none}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:15px}.actions button{font-size:12px}.feedback{font-size:12px;color:var(--muted)}.solution{background:#f2f8f4;padding:16px 18px;border-left:3px solid #629a7d;border-radius:3px;margin-top:16px;font-size:13px}.solution code{background:#e2eee7;padding:1px 5px;border-radius:3px;font-family:var(--mono)}.solution ul{padding-left:20px}.source{font-size:11px;color:var(--muted);margin-top:15px}.source summary{cursor:pointer}.source a{display:block;padding:2px 0}.note{padding:13px 17px;background:#fbf4e7;border-left:3px solid #d5b16a;color:#725c3e;font-size:12px;margin:14px 0;border-radius:4px}.draft{margin-top:16px;font-size:12px;color:var(--muted)}textarea{display:block;resize:vertical;width:100%;min-height:90px;border:1px solid var(--line);border-radius:6px;padding:10px;font:12px/1.6 var(--mono);margin-top:8px;background:#fafcfb}.pager{display:flex;justify-content:center;align-items:center;gap:16px;margin:28px 0}.empty{padding:45px;text-align:center;color:var(--muted);background:white;border:1px dashed var(--line);border-radius:10px}.footer{font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px;margin-top:30px}.small-btn{font-size:11px;padding:5px 9px}.set-panel{background:#e8f2ed;border:1px solid #bfd6c9;border-radius:8px;padding:15px;margin:18px 0}.set-panel .tools{justify-content:space-between}.timer{font-family:var(--mono);font-size:20px}.hidden{display:none!important}dialog{border:1px solid var(--line);border-radius:12px;max-width:750px;width:90%;padding:27px;color:var(--ink)}dialog::backdrop{background:#152e3480}dialog ul{padding-left:20px;font-size:13px}body{scroll-behavior:smooth}#storage-status{font-size:11px;color:var(--muted);margin-top:10px}
+@media(max-width:1000px){.app{grid-template-columns:210px 1fr}.main{padding:30px 25px}.side{padding:25px 15px}.answers-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.app{display:block}.side{position:static;height:auto;padding:18px}.brand small{margin:0}.brand{font-size:20px}.side nav{display:flex;flex-wrap:wrap;gap:4px}.side .nav-item{width:auto;font-size:11px;padding:5px 8px}.side-label{margin:14px 0 6px}.side-footer,.side .downloads{display:none}.main{padding:24px 16px}h1{font-size:26px}.stats{grid-template-columns:repeat(2,1fr);gap:8px;margin:20px 0}.stat{padding:12px 15px}.q-card{padding:18px 16px}.question{font-size:15px}.answers-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.codebox{font-size:11px;padding:14px}.results-bar{align-items:flex-start}.blank{width:145px}.tools .seg button{font-size:12px}.toolbar{padding:13px}}
+@media print{.side,.toolbar,.actions,.star,.pager,.draft,.stats,.footer,.set-panel{display:none}.app{display:block}.main{padding:0}.q-card{break-inside:avoid;border:0;border-bottom:1px solid #ddd;box-shadow:none}.codebox{color:#000;background:#f4f4f4;white-space:pre-wrap}.blank{border:0;border-bottom:1px solid #777;background:white}.source{display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+ <div class="brand">微处理器<span style="color:#d7b56b">.</span><small>PRACTICE WORKSPACE / 2026</small></div>
+ <div class="side-label">按教材章节练习</div><nav id="chapter-nav" aria-label="章节"></nav>
+ <div class="side-label downloads">纸笔练习</div><div class="downloads"><a class="download" href="pdf/微处理器_填空与编程练习册.pdf">↗ 下载练习册 PDF</a><a class="download" href="pdf/微处理器_参考答案与解析.pdf">↗ 下载答案解析 PDF</a></div>
+ <div class="side-footer">围绕讲义、课堂与实践<br>先做题，再核对，再理解。<br>104 道填空 / 18 道程序填空</div>
+</aside>
+<main class="main">
+ <div class="eyebrow">UNDERSTAND · PRACTISE · REVIEW</div>
+ <h1>把知识连成可执行的步骤。</h1>
+ <p class="intro">按六章回顾基本概念，沿着纯汇编、混合调用、接口驱动逐步练习。题目依据 10 月 19 日两份复习记录，结合课本、课件、往届试卷和三次实验编排。</p>
+ <div class="stats"><div class="stat"><strong id="stat-total">122</strong><span>题目 · 263 个空</span></div><div class="stat"><strong id="stat-done">0</strong><span>已核对题目</span></div><div class="stat"><strong id="stat-correct">0</strong><span>已掌握题目</span></div><div class="stat"><strong id="stat-wrong">0</strong><span>待复习题目</span></div></div>
+ <div class="toolbar"><div class="tools"><div class="seg" id="type-tabs"><button data-type="fill" class="active">章节填空</button><button data-type="program">程序填空</button><button data-type="all">全部</button></div><label class="search"><span class="hidden">搜索题目</span><input id="search" type="search" placeholder="搜索知识点、题号或来源…" aria-label="搜索题目"></label></div>
+ <div class="tools"><select id="origin" aria-label="题目来源"><option value="">全部来源</option><option value="真题">往届真题</option><option value="课件">课件例题</option><option value="实验一">实验一</option><option value="实验二">实验二</option><option value="实验三">实验三</option><option value="教材">教材巩固</option><option value="课堂">课堂变式</option></select><label class="check-label"><input id="wrong-only" type="checkbox">只看待复习</label><label class="check-label"><input id="star-only" type="checkbox">只看收藏</label><span style="flex:1"></span><button id="guide" class="small-btn">使用说明与校订</button></div>
+ <div class="tools"><select id="set-select" aria-label="选择专项组卷"><option value="">专项组卷 · 15 + 5/10/10 空</option></select><button id="start-set" class="small-btn">开始专项练习</button><span class="count">80 分专项练习，不含简答题</span></div></div>
+ <div id="set-panel" class="set-panel hidden"></div>
+ <div class="results-bar"><div><h2 id="view-title">章节填空 · 全部章节</h2><div class="count" id="result-count" aria-live="polite"></div></div><button id="check-page" class="small-btn">核对本页</button></div>
+ <div id="question-list"></div><div class="pager"><button id="prev">← 上一页</button><span id="page-info" class="count"></span><button id="next">下一页 →</button></div>
+ <div class="footer"><div class="tools"><button id="export" class="small-btn">导出进度备份</button><button id="import" class="small-btn">导入进度</button><input id="import-file" type="file" accept="application/json,.json" class="hidden"><button id="reset" class="small-btn">清空全部进度</button></div><div id="storage-status">答案与草稿只保存在当前浏览器。建议定期导出备份。</div><p>自动核对为参考答案匹配，不执行代码；等价写法可自评。题目来源可在每题下方展开。来源按书目、章节或页码列出。作答保存在当前浏览器，可导出备份后在其他设备导入。</p></div>
+</main></div>
+<dialog id="guide-dialog"><h2>如何使用这套练习</h2><ul id="guide-content"></ul><h2 style="margin-top:20px">编排依据</h2><div id="basis" class="source"></div><p style="font-size:12px;color:var(--muted)">题库版本：2026-11-01 · 编号在网页、练习册与答案册中一致。</p><button id="close-guide" class="primary">开始练习</button></dialog>
+<script id="bank" type="application/json">{
+  "version": 1,
+  "title": "微处理器 · 练习工作台",
+  "chapters": [
+    "片上系统设计方法概述",
+    "硬件描述语言与数字系统基础",
+    "微处理器原理与 ARM 内核",
+    "Thumb 指令与 ARM 汇编程序设计",
+    "Cortex-M0 片上系统与总线",
+    "IP 集成与软硬件协同"
+  ],
+  "questions": [
+    {
+      "id": "F1-01",
+      "type": "fill",
+      "chapter": 1,
+      "title": "SoC 的中文名称是[[1]]。",
+      "prompt": "SoC 的中文名称是[[1]]。",
+      "answers": [
+        [
+          "片上系统",
+          "片上系统芯片"
+        ]
+      ],
+      "explain": "SoC 将处理器、存储器、接口及专用模块等集成为系统。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第1章 · 正文 p7-8",
+          "page": 12
+        }
+      ]
+    },
+    {
+      "id": "F1-02",
+      "type": "fill",
+      "chapter": 1,
+      "title": "购买处理器 IP 得到的是可集成的[[1]]，还须与存储器及外设等组合才能形成实际 SoC。",
+      "prompt": "购买处理器 IP 得到的是可集成的[[1]]，还须与存储器及外设等组合才能形成实际 SoC。",
+      "answers": [
+        [
+          "设计数据",
+          "设计",
+          "内核设计数据"
+        ]
+      ],
+      "explain": "内核 IP 不是已经包含所有外围功能的完整 SoC 芯片。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第1章 · 正文 p12",
+          "page": 17
+        }
+      ]
+    },
+    {
+      "id": "F1-03",
+      "type": "fill",
+      "chapter": 1,
+      "title": "IP 核按交付形式分为软核、[[1]]和硬核。",
+      "prompt": "IP 核按交付形式分为软核、[[1]]和硬核。",
+      "answers": [
+        [
+          "固核"
+        ]
+      ],
+      "explain": "固核在软核与硬核之间作折衷。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第1章 · 正文 p12",
+          "page": 17
+        }
+      ]
+    },
+    {
+      "id": "F1-04",
+      "type": "fill",
+      "chapter": 1,
+      "title": "由于软核不依赖于最终的实现[[1]]，因此具有较大灵活性。",
+      "prompt": "由于软核不依赖于最终的实现[[1]]，因此具有较大灵活性。",
+      "answers": [
+        [
+          "工艺"
+        ]
+      ],
+      "explain": "按复习课件原句填“工艺”；不要照搬 example.md 的“硬件实现”。",
+      "origin": "复习课件例题",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第1章 · 正文 p12",
+          "page": 17
+        },
+        {
+          "label": "期末复习总结 · 填空例题与答案",
+          "page": 18
+        }
+      ]
+    },
+    {
+      "id": "F1-05",
+      "type": "fill",
+      "chapter": 1,
+      "title": "软核通常以[[1]]源文件的形式交付。",
+      "prompt": "软核通常以[[1]]源文件的形式交付。",
+      "answers": [
+        [
+          "HDL",
+          "硬件描述语言",
+          "RTL"
+        ]
+      ],
+      "explain": "描述功能而未固定最终物理实现。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第1章 · 正文 p12",
+          "page": 17
+        }
+      ]
+    },
+    {
+      "id": "F1-06",
+      "type": "fill",
+      "chapter": 1,
+      "title": "将功能分配给软件或硬件实现，是软硬件协同设计中的[[1]]划分。",
+      "prompt": "将功能分配给软件或硬件实现，是软硬件协同设计中的[[1]]划分。",
+      "answers": [
+        [
+          "功能",
+          "软硬件功能"
+        ]
+      ],
+      "explain": "划分时需要综合考虑性能、成本、功耗等约束。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第1章 · 正文 p9-10",
+          "page": 14
+        }
+      ]
+    },
+    {
+      "id": "F1-07",
+      "type": "fill",
+      "chapter": 1,
+      "title": "EDA 的中文含义是[[1]]。",
+      "prompt": "EDA 的中文含义是[[1]]。",
+      "answers": [
+        [
+          "电子设计自动化"
+        ]
+      ],
+      "explain": "EDA 工具支持设计输入、综合与实现等环节。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第1章 · 正文 p10-11",
+          "page": 15
+        }
+      ]
+    },
+    {
+      "id": "F1-08",
+      "type": "fill",
+      "chapter": 1,
+      "title": "从系统总体需求逐步分解到各模块的设计方法称为[[1]]设计。",
+      "prompt": "从系统总体需求逐步分解到各模块的设计方法称为[[1]]设计。",
+      "answers": [
+        [
+          "自顶向下",
+          "自顶而下"
+        ]
+      ],
+      "explain": "先划分系统，再细化各模块及其接口。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第1章 · 正文 p10-11",
+          "page": 15
+        }
+      ]
+    },
+    {
+      "id": "F1-09",
+      "type": "fill",
+      "chapter": 1,
+      "title": "多个处理器各有 Cache 而共享数据时，需要解决 Cache 的[[1]]问题。",
+      "prompt": "多个处理器各有 Cache 而共享数据时，需要解决 Cache 的[[1]]问题。",
+      "answers": [
+        [
+          "一致性",
+          "数据一致性",
+          "缓存一致性"
+        ]
+      ],
+      "explain": "一个副本被修改后，其他副本可能过期。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第1章 · 正文 p13-15",
+          "page": 18
+        }
+      ]
+    },
+    {
+      "id": "F1-10",
+      "type": "fill",
+      "chapter": 1,
+      "title": "多处理器共享总线时，同时访存会产生总线[[1]]，限制扩展性。",
+      "prompt": "多处理器共享总线时，同时访存会产生总线[[1]]，限制扩展性。",
+      "answers": [
+        [
+          "竞争",
+          "争用"
+        ]
+      ],
+      "explain": "复习总结要求把总线竞争与缓存一致性联系起来理解。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第1章 · 正文 p13-15",
+          "page": 18
+        }
+      ]
+    },
+    {
+      "id": "F2-01",
+      "type": "fill",
+      "chapter": 2,
+      "title": "Verilog 模块用 module 开始，用[[1]]结束。",
+      "prompt": "Verilog 模块用 module 开始，用[[1]]结束。",
+      "answers": [
+        [
+          "endmodule"
+        ]
+      ],
+      "explain": "模块对应有明确端口和内部功能关系的硬件实体。",
+      "origin": "教材巩固",
+      "priority": "基础",
+      "sources": [
+        {
+          "label": "教材第2章 · 正文 p26-27",
+          "page": 31
+        }
+      ]
+    },
+    {
+      "id": "F2-02",
+      "type": "fill",
+      "chapter": 2,
+      "title": "组合逻辑中的连续赋值常使用关键字[[1]]。",
+      "prompt": "组合逻辑中的连续赋值常使用关键字[[1]]。",
+      "answers": [
+        [
+          "assign"
+        ]
+      ],
+      "explain": "连续赋值会随右侧信号变化而更新。",
+      "origin": "教材巩固",
+      "priority": "基础",
+      "sources": [
+        {
+          "label": "教材第2章 · 正文 p29-30",
+          "page": 34
+        }
+      ]
+    },
+    {
+      "id": "F2-03",
+      "type": "fill",
+      "chapter": 2,
+      "title": "在时序 always 块中，为表达寄存器同时更新，通常使用[[1]]赋值。",
+      "prompt": "在时序 always 块中，为表达寄存器同时更新，通常使用[[1]]赋值。",
+      "answers": [
+        [
+          "非阻塞",
+          "非阻塞赋值",
+          "<="
+        ]
+      ],
+      "explain": "非阻塞赋值有助于正确表达触发器的同步更新。",
+      "origin": "教材巩固",
+      "priority": "基础",
+      "sources": [
+        {
+          "label": "教材第2章 · 正文 p30-31",
+          "page": 35
+        }
+      ]
+    },
+    {
+      "id": "F2-04",
+      "type": "fill",
+      "chapter": 2,
+      "title": "仅在 posedge clk 时更新的存储单元，其状态通常在时钟[[1]]改变。",
+      "prompt": "仅在 posedge clk 时更新的存储单元，其状态通常在时钟[[1]]改变。",
+      "answers": [
+        [
+          "上升沿"
+        ]
+      ],
+      "explain": "描述上升沿触发的时序逻辑。",
+      "origin": "教材巩固",
+      "priority": "基础",
+      "sources": [
+        {
+          "label": "教材第2章 · 正文 p46-47",
+          "page": 51
+        }
+      ]
+    },
+    {
+      "id": "F2-05",
+      "type": "fill",
+      "chapter": 2,
+      "title": "always @(posedge clk or negedge rst_n) 中 rst_n 是低有效的[[1]]复位。",
+      "prompt": "always @(posedge clk or negedge rst_n) 中 rst_n 是低有效的[[1]]复位。",
+      "answers": [
+        [
+          "异步"
+        ]
+      ],
+      "explain": "复位下降沿无需等待时钟上升沿即可触发。",
+      "origin": "教材巩固",
+      "priority": "基础",
+      "sources": [
+        {
+          "label": "教材第2章 · 正文 p46-47",
+          "page": 51
+        }
+      ]
+    },
+    {
+      "id": "F2-06",
+      "type": "fill",
+      "chapter": 2,
+      "title": "Moore 状态机的输出仅与[[1]]有关。",
+      "prompt": "Moore 状态机的输出仅与[[1]]有关。",
+      "answers": [
+        [
+          "当前状态",
+          "现态",
+          "状态"
+        ]
+      ],
+      "explain": "Mealy 输出还与当前输入有关。",
+      "origin": "教材巩固",
+      "priority": "基础",
+      "sources": [
+        {
+          "label": "教材第2章 · 正文 p85-86",
+          "page": 90
+        }
+      ]
+    },
+    {
+      "id": "F2-07",
+      "type": "fill",
+      "chapter": 2,
+      "title": "Mealy 状态机的输出与当前状态以及当前[[1]]有关。",
+      "prompt": "Mealy 状态机的输出与当前状态以及当前[[1]]有关。",
+      "answers": [
+        [
+          "输入",
+          "输入信号"
+        ]
+      ],
+      "explain": "注意与 Moore 的区别。",
+      "origin": "教材巩固",
+      "priority": "基础",
+      "sources": [
+        {
+          "label": "教材第2章 · 正文 p85-86",
+          "page": 90
+        }
+      ]
+    },
+    {
+      "id": "F2-08",
+      "type": "fill",
+      "chapter": 2,
+      "title": "数码管显示中，选择哪个数字图形的是[[1]]信号；选择哪一位亮的是[[2]]信号。",
+      "prompt": "数码管显示中，选择哪个数字图形的是[[1]]信号；选择哪一位亮的是[[2]]信号。",
+      "answers": [
+        [
+          "段选"
+        ],
+        [
+          "位选"
+        ]
+      ],
+      "explain": "软件需按实际电平有效性分别写段选和位选端口。",
+      "origin": "教材巩固",
+      "priority": "基础",
+      "sources": [
+        {
+          "label": "教材第2章 · 正文 p65-70",
+          "page": 70
+        }
+      ]
+    },
+    {
+      "id": "F2-09",
+      "type": "fill",
+      "chapter": 2,
+      "title": "PWM 调光主要通过改变高电平持续时间与周期之比，即[[1]]，来改变平均亮度。",
+      "prompt": "PWM 调光主要通过改变高电平持续时间与周期之比，即[[1]]，来改变平均亮度。",
+      "answers": [
+        [
+          "占空比"
+        ]
+      ],
+      "explain": "固定周期内调整导通时间。",
+      "origin": "教材巩固",
+      "priority": "基础",
+      "sources": [
+        {
+          "label": "教材第2章 · 正文 p87-91",
+          "page": 92
+        }
+      ]
+    },
+    {
+      "id": "F2-10",
+      "type": "fill",
+      "chapter": 2,
+      "title": "加速器硬件常划分为执行运算的[[1]]与决定各步动作的控制逻辑。",
+      "prompt": "加速器硬件常划分为执行运算的[[1]]与决定各步动作的控制逻辑。",
+      "answers": [
+        [
+          "数据通路",
+          "数据通路部分"
+        ]
+      ],
+      "explain": "第二章以 GCD 为例；期末编程侧重读懂电路后写汇编驱动。",
+      "origin": "教材巩固",
+      "priority": "基础",
+      "sources": [
+        {
+          "label": "教材第2章 · 正文 p109-116",
+          "page": 114
+        }
+      ]
+    },
+    {
+      "id": "F3-01",
+      "type": "fill",
+      "chapter": 3,
+      "title": "冯·诺依曼计算机的五大部件为运算器、控制器、存储器、[[1]]和[[2]]。",
+      "prompt": "冯·诺依曼计算机的五大部件为运算器、控制器、存储器、[[1]]和[[2]]。",
+      "answers": [
+        [
+          "输入设备",
+          "输入"
+        ],
+        [
+          "输出设备",
+          "输出"
+        ]
+      ],
+      "explain": "处理器核心通常由运算器和控制器组成。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p122-125",
+          "page": 127
+        }
+      ]
+    },
+    {
+      "id": "F3-02",
+      "type": "fill",
+      "chapter": 3,
+      "title": "计算机内部三总线是地址总线、数据总线和[[1]]总线。",
+      "prompt": "计算机内部三总线是地址总线、数据总线和[[1]]总线。",
+      "answers": [
+        [
+          "控制"
+        ]
+      ],
+      "explain": "分别传地址、数据及读写控制等信息。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p124-125",
+          "page": 129
+        }
+      ]
+    },
+    {
+      "id": "F3-03",
+      "type": "fill",
+      "chapter": 3,
+      "title": "指令的基本执行过程是取指、[[1]]和执行。",
+      "prompt": "指令的基本执行过程是取指、[[1]]和执行。",
+      "answers": [
+        [
+          "译码",
+          "分析指令"
+        ]
+      ],
+      "explain": "处理器通过解释指令序列在时间上逐步执行操作。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p128-129",
+          "page": 133
+        }
+      ]
+    },
+    {
+      "id": "F3-04",
+      "type": "fill",
+      "chapter": 3,
+      "title": "对程序员可见的机器属性，如指令系统，属于计算机的[[1]]。",
+      "prompt": "对程序员可见的机器属性，如指令系统，属于计算机的[[1]]。",
+      "answers": [
+        [
+          "体系结构",
+          "架构",
+          "计算机体系结构"
+        ]
+      ],
+      "explain": "组织关注如何连接与配合，实现关注物理技术。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p121-123",
+          "page": 126
+        }
+      ]
+    },
+    {
+      "id": "F3-05",
+      "type": "fill",
+      "chapter": 3,
+      "title": "指令系统是软件与[[1]]之间的约定。",
+      "prompt": "指令系统是软件与[[1]]之间的约定。",
+      "answers": [
+        [
+          "硬件"
+        ]
+      ],
+      "explain": "软件按指令规范编程，硬件保证实现对应操作。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p130-132",
+          "page": 135
+        }
+      ]
+    },
+    {
+      "id": "F3-06",
+      "type": "fill",
+      "chapter": 3,
+      "title": "机器指令中，指明完成何种操作的字段是[[1]]。",
+      "prompt": "机器指令中，指明完成何种操作的字段是[[1]]。",
+      "answers": [
+        [
+          "操作码"
+        ]
+      ],
+      "explain": "不要与指明数据及其位置的操作数字段混淆。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p130-132",
+          "page": 135
+        }
+      ]
+    },
+    {
+      "id": "F3-07",
+      "type": "fill",
+      "chapter": 3,
+      "title": "一条指令的[[1]]和相关寻址方式会影响处理器的组织结构。",
+      "prompt": "一条指令的[[1]]和相关寻址方式会影响处理器的组织结构。",
+      "answers": [
+        [
+          "地址字段"
+        ]
+      ],
+      "explain": "对应往届填空原意。",
+      "origin": "真题改编",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p130-132",
+          "page": 135
+        },
+        {
+          "label": "往届 A 卷 · 填空题"
+        }
+      ]
+    },
+    {
+      "id": "F3-08",
+      "type": "fill",
+      "chapter": 3,
+      "title": "操作数直接包含在指令编码中的寻址方式是[[1]]寻址。",
+      "prompt": "操作数直接包含在指令编码中的寻址方式是[[1]]寻址。",
+      "answers": [
+        [
+          "立即",
+          "立即数"
+        ]
+      ],
+      "explain": "如 MOVS R0,#7，7 在指令中直接给出。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p134-135",
+          "page": 139
+        }
+      ]
+    },
+    {
+      "id": "F3-09",
+      "type": "fill",
+      "chapter": 3,
+      "title": "操作数在指定通用寄存器内的方式称为[[1]]寻址。",
+      "prompt": "操作数在指定通用寄存器内的方式称为[[1]]寻址。",
+      "answers": [
+        [
+          "寄存器",
+          "寄存器直接"
+        ]
+      ],
+      "explain": "如 MOV R0,R1 从 R1 取值。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p135",
+          "page": 140
+        }
+      ]
+    },
+    {
+      "id": "F3-10",
+      "type": "fill",
+      "chapter": 3,
+      "title": "寄存器内存放操作数的存储地址，按该地址访存，称为寄存器[[1]]寻址。",
+      "prompt": "寄存器内存放操作数的存储地址，按该地址访存，称为寄存器[[1]]寻址。",
+      "answers": [
+        [
+          "间接"
+        ]
+      ],
+      "explain": "如 LDR R0,[R1]；R1 是地址，R0 接收内容。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p135-136",
+          "page": 140
+        }
+      ]
+    },
+    {
+      "id": "F3-11",
+      "type": "fill",
+      "chapter": 3,
+      "title": "以 PC 为基准加偏移形成转移目标的方式称为[[1]]寻址。",
+      "prompt": "以 PC 为基准加偏移形成转移目标的方式称为[[1]]寻址。",
+      "answers": [
+        [
+          "相对",
+          "PC相对"
+        ]
+      ],
+      "explain": "标号在汇编时可被转换为相对偏移。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p138",
+          "page": 143
+        }
+      ]
+    },
+    {
+      "id": "F3-12",
+      "type": "fill",
+      "chapter": 3,
+      "title": "RISC 的访存通常采用[[1]]体系，仅加载与存储指令访问存储器。",
+      "prompt": "RISC 的访存通常采用[[1]]体系，仅加载与存储指令访问存储器。",
+      "answers": [
+        [
+          "Load-Store",
+          "加载存储",
+          "LoadStore"
+        ]
+      ],
+      "explain": "运算指令通常在寄存器间完成。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p139-140",
+          "page": 144
+        }
+      ]
+    },
+    {
+      "id": "F3-13",
+      "type": "fill",
+      "chapter": 3,
+      "title": "Cortex-M0 中 R13、R14、R15 分别称为 SP、[[1]]、PC。",
+      "prompt": "Cortex-M0 中 R13、R14、R15 分别称为 SP、[[1]]、PC。",
+      "answers": [
+        [
+          "LR",
+          "链接寄存器"
+        ]
+      ],
+      "explain": "SP 为栈指针，LR 保存函数返回信息，PC 为程序计数器。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p148-149",
+          "page": 153
+        }
+      ]
+    },
+    {
+      "id": "F3-14",
+      "type": "fill",
+      "chapter": 3,
+      "title": "执行 BL 或 BLX 调用时，函数返回地址被写入[[1]]。",
+      "prompt": "执行 BL 或 BLX 调用时，函数返回地址被写入[[1]]。",
+      "answers": [
+        [
+          "LR",
+          "R14",
+          "链接寄存器"
+        ]
+      ],
+      "explain": "非叶子函数须在进一步调用前保存自己的 LR。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p149",
+          "page": 154
+        }
+      ]
+    },
+    {
+      "id": "F3-15",
+      "type": "fill",
+      "chapter": 3,
+      "title": "Cortex-M0 中 EPSR 的 T 位表示[[1]]状态。",
+      "prompt": "Cortex-M0 中 EPSR 的 T 位表示[[1]]状态。",
+      "answers": [
+        [
+          "Thumb"
+        ]
+      ],
+      "explain": "Cortex-M0 不支持切换到 ARM 状态。",
+      "origin": "真题改编",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p150",
+          "page": 155
+        },
+        {
+          "label": "往届 A 卷 · 填空题"
+        }
+      ]
+    },
+    {
+      "id": "F3-16",
+      "type": "fill",
+      "chapter": 3,
+      "title": "EPSR 的 T 位被置零会在后续执行时引发[[1]]异常。",
+      "prompt": "EPSR 的 T 位被置零会在后续执行时引发[[1]]异常。",
+      "answers": [
+        [
+          "HardFault",
+          "硬件错误",
+          "硬件错误异常"
+        ]
+      ],
+      "explain": "题意以课程讲义描述为准。",
+      "origin": "真题改编",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p150",
+          "page": 155
+        },
+        {
+          "label": "往届 A 卷 · 填空题"
+        }
+      ]
+    },
+    {
+      "id": "F3-17",
+      "type": "fill",
+      "chapter": 3,
+      "title": "APSR 的 N、Z、C、V 中，表示结果为零的标志是[[1]]。",
+      "prompt": "APSR 的 N、Z、C、V 中，表示结果为零的标志是[[1]]。",
+      "answers": [
+        [
+          "Z"
+        ]
+      ],
+      "explain": "CMP 会更新条件标志，BEQ 测试 Z=1。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p150",
+          "page": 155
+        }
+      ]
+    },
+    {
+      "id": "F3-18",
+      "type": "fill",
+      "chapter": 3,
+      "title": "APSR 中表示有符号运算溢出的标志为[[1]]。",
+      "prompt": "APSR 中表示有符号运算溢出的标志为[[1]]。",
+      "answers": [
+        [
+          "V"
+        ]
+      ],
+      "explain": "C 是无符号进位或减法无借位语义，不等于有符号溢出。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p150",
+          "page": 155
+        }
+      ]
+    },
+    {
+      "id": "F3-19",
+      "type": "fill",
+      "chapter": 3,
+      "title": "按本课程 Cortex-M0 的字节序，0x12345678 存到地址 A 后，最低地址字节为 0x[[1]]。",
+      "prompt": "按本课程 Cortex-M0 的字节序，0x12345678 存到地址 A 后，最低地址字节为 0x[[1]]。",
+      "answers": [
+        [
+          "78"
+        ]
+      ],
+      "explain": "小端序把数值最低有效字节放在最低地址。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p153",
+          "page": 158
+        }
+      ]
+    },
+    {
+      "id": "F3-20",
+      "type": "fill",
+      "chapter": 3,
+      "title": "Cortex-M0 栈采用[[1]]模型，PUSH 后栈向低地址增长。",
+      "prompt": "Cortex-M0 栈采用[[1]]模型，PUSH 后栈向低地址增长。",
+      "answers": [
+        [
+          "满递减",
+          "满递减栈"
+        ]
+      ],
+      "explain": "SP 指向最后压入的数据。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p137-138",
+          "page": 142
+        }
+      ]
+    },
+    {
+      "id": "F3-21",
+      "type": "fill",
+      "chapter": 3,
+      "title": "Cortex-M0 的硬件异常处理使用[[1]]栈指针。",
+      "prompt": "Cortex-M0 的硬件异常处理使用[[1]]栈指针。",
+      "answers": [
+        [
+          "MSP",
+          "主栈指针"
+        ]
+      ],
+      "explain": "课程裸机实验主要使用 MSP。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p149",
+          "page": 154
+        }
+      ]
+    },
+    {
+      "id": "F3-22",
+      "type": "fill",
+      "chapter": 3,
+      "title": "程序倾向于再次访问最近访问的数据或指令，复习课件例题将其称为[[1]]局部性。",
+      "prompt": "程序倾向于再次访问最近访问的数据或指令，复习课件例题将其称为[[1]]局部性。",
+      "answers": [
+        [
+          "引用"
+        ]
+      ],
+      "explain": "按课件完整表述是“引用局部性”；从具体行为看属于时间局部性。",
+      "origin": "复习课件例题",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第3章 · 正文 p125-126",
+          "page": 130
+        },
+        {
+          "label": "期末复习总结 · 填空例题与答案",
+          "page": 18
+        }
+      ]
+    },
+    {
+      "id": "F4-01",
+      "type": "fill",
+      "chapter": 4,
+      "title": "把存储器中的一个字加载到寄存器，常使用[[1]]指令。",
+      "prompt": "把存储器中的一个字加载到寄存器，常使用[[1]]指令。",
+      "answers": [
+        [
+          "LDR"
+        ]
+      ],
+      "explain": "LDR 为加载，STR 为存储。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p175-177",
+          "page": 180
+        }
+      ]
+    },
+    {
+      "id": "F4-02",
+      "type": "fill",
+      "chapter": 4,
+      "title": "将寄存器的一个字写入存储器，常使用[[1]]指令。",
+      "prompt": "将寄存器的一个字写入存储器，常使用[[1]]指令。",
+      "answers": [
+        [
+          "STR"
+        ]
+      ],
+      "explain": "方向是寄存器到存储器或映射端口。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p175-177",
+          "page": 180
+        }
+      ]
+    },
+    {
+      "id": "F4-03",
+      "type": "fill",
+      "chapter": 4,
+      "title": "读取一个无符号字节并零扩展，常使用[[1]]指令。",
+      "prompt": "读取一个无符号字节并零扩展，常使用[[1]]指令。",
+      "answers": [
+        [
+          "LDRB"
+        ]
+      ],
+      "explain": "不要用一次字读取替代字符读取。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p175-177",
+          "page": 180
+        }
+      ]
+    },
+    {
+      "id": "F4-04",
+      "type": "fill",
+      "chapter": 4,
+      "title": "LDR R0,[R1,#4] 的有效地址为 R1 的值加[[1]]字节。",
+      "prompt": "LDR R0,[R1,#4] 的有效地址为 R1 的值加[[1]]字节。",
+      "answers": [
+        [
+          "4"
+        ]
+      ],
+      "explain": "题设为按字节编址，偏移单位是字节。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p175-177",
+          "page": 180
+        }
+      ]
+    },
+    {
+      "id": "F4-05",
+      "type": "fill",
+      "chapter": 4,
+      "title": "LSRS 右移时，高位补[[1]]。",
+      "prompt": "LSRS 右移时，高位补[[1]]。",
+      "answers": [
+        [
+          "0",
+          "零"
+        ]
+      ],
+      "explain": "适合无符号位操作，区别于 ASRS 符号扩展。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p168-170",
+          "page": 173
+        }
+      ]
+    },
+    {
+      "id": "F4-06",
+      "type": "fill",
+      "chapter": 4,
+      "title": "ASRS 右移时，高位补原数据的[[1]]位。",
+      "prompt": "ASRS 右移时，高位补原数据的[[1]]位。",
+      "answers": [
+        [
+          "符号",
+          "最高",
+          "符号位"
+        ]
+      ],
+      "explain": "算术右移用于有符号数据。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p168-170",
+          "page": 173
+        }
+      ]
+    },
+    {
+      "id": "F4-07",
+      "type": "fill",
+      "chapter": 4,
+      "title": "实现按位与运算并更新标志的指令是[[1]]。",
+      "prompt": "实现按位与运算并更新标志的指令是[[1]]。",
+      "answers": [
+        [
+          "ANDS"
+        ]
+      ],
+      "explain": "例如 ANDS R2,R2,R3。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p166-168",
+          "page": 171
+        }
+      ]
+    },
+    {
+      "id": "F4-08",
+      "type": "fill",
+      "chapter": 4,
+      "title": "只做按位与测试、更新条件标志而不保存结果，可使用[[1]]。",
+      "prompt": "只做按位与测试、更新条件标志而不保存结果，可使用[[1]]。",
+      "answers": [
+        [
+          "TST"
+        ]
+      ],
+      "explain": "Cortex-M0 练习使用寄存器掩码形式 TST Rn,Rm。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p171-172",
+          "page": 176
+        }
+      ]
+    },
+    {
+      "id": "F4-09",
+      "type": "fill",
+      "chapter": 4,
+      "title": "CMP R0,#0 后，R0 为零时可使用[[1]]跳转。",
+      "prompt": "CMP R0,#0 后，R0 为零时可使用[[1]]跳转。",
+      "answers": [
+        [
+          "BEQ"
+        ]
+      ],
+      "explain": "CMP 更新 Z，BEQ 在 Z=1 时转移。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p165-166",
+          "page": 170
+        }
+      ]
+    },
+    {
+      "id": "F4-10",
+      "type": "fill",
+      "chapter": 4,
+      "title": "CMP R0,#0 后，R0 非零时可使用[[1]]跳转。",
+      "prompt": "CMP R0,#0 后，R0 非零时可使用[[1]]跳转。",
+      "answers": [
+        [
+          "BNE"
+        ]
+      ],
+      "explain": "与 BEQ 相对。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p165-166",
+          "page": 170
+        }
+      ]
+    },
+    {
+      "id": "F4-11",
+      "type": "fill",
+      "chapter": 4,
+      "title": "比较两个无符号数，R0 小于 R1 时可用 BCC，也称[[1]]。",
+      "prompt": "比较两个无符号数，R0 小于 R1 时可用 BCC，也称[[1]]。",
+      "answers": [
+        [
+          "BLO"
+        ]
+      ],
+      "explain": "有符号小于使用 BLT；需按数据类型选择。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p172-174",
+          "page": 177
+        }
+      ]
+    },
+    {
+      "id": "F4-12",
+      "type": "fill",
+      "chapter": 4,
+      "title": "从不再调用其他函数的叶子函数返回，可执行 BX [[1]]。",
+      "prompt": "从不再调用其他函数的叶子函数返回，可执行 BX [[1]]。",
+      "answers": [
+        [
+          "LR",
+          "R14"
+        ]
+      ],
+      "explain": "BX LR 将控制权交回调用方。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p172-174",
+          "page": 177
+        }
+      ]
+    },
+    {
+      "id": "F4-13",
+      "type": "fill",
+      "chapter": 4,
+      "title": "在函数中执行另一次 BL 之前，通常要保存当前[[1]]，否则会丢失返回路径。",
+      "prompt": "在函数中执行另一次 BL 之前，通常要保存当前[[1]]，否则会丢失返回路径。",
+      "answers": [
+        [
+          "LR",
+          "返回地址",
+          "R14"
+        ]
+      ],
+      "explain": "嵌套调用会覆盖 LR。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p173-174",
+          "page": 178
+        }
+      ]
+    },
+    {
+      "id": "F4-14",
+      "type": "fill",
+      "chapter": 4,
+      "title": "汇编源程序中定义代码段或数据段，ARMASM 使用[[1]]伪指令。",
+      "prompt": "汇编源程序中定义代码段或数据段，ARMASM 使用[[1]]伪指令。",
+      "answers": [
+        [
+          "AREA"
+        ]
+      ],
+      "explain": "是汇编期的组织信息，不是 CPU 运行期操作。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p193-194",
+          "page": 198
+        }
+      ]
+    },
+    {
+      "id": "F4-15",
+      "type": "fill",
+      "chapter": 4,
+      "title": "向其他源文件公开当前文件定义的函数符号，使用[[1]]伪指令。",
+      "prompt": "向其他源文件公开当前文件定义的函数符号，使用[[1]]伪指令。",
+      "answers": [
+        [
+          "EXPORT",
+          "GLOBAL"
+        ]
+      ],
+      "explain": "IMPORT 用于导入外部符号，方向不同。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p194-195",
+          "page": 199
+        }
+      ]
+    },
+    {
+      "id": "F4-16",
+      "type": "fill",
+      "chapter": 4,
+      "title": "汇编代码调用外部 C 函数前，可用[[1]]声明外部符号。",
+      "prompt": "汇编代码调用外部 C 函数前，可用[[1]]声明外部符号。",
+      "answers": [
+        [
+          "IMPORT",
+          "EXTERN"
+        ]
+      ],
+      "explain": "区分导入与导出。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p194-195",
+          "page": 199
+        }
+      ]
+    },
+    {
+      "id": "F4-17",
+      "type": "fill",
+      "chapter": 4,
+      "title": "ARMASM 定义一个 32 位常数数据项使用[[1]]。",
+      "prompt": "ARMASM 定义一个 32 位常数数据项使用[[1]]。",
+      "answers": [
+        [
+          "DCD"
+        ]
+      ],
+      "explain": "如向量表的初始 SP 和各处理函数地址。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p189",
+          "page": 194
+        }
+      ]
+    },
+    {
+      "id": "F4-18",
+      "type": "fill",
+      "chapter": 4,
+      "title": "ARMASM 为栈等区域保留字节空间，可使用[[1]]。",
+      "prompt": "ARMASM 为栈等区域保留字节空间，可使用[[1]]。",
+      "answers": [
+        [
+          "SPACE"
+        ]
+      ],
+      "explain": "常见形式 Stack_Mem SPACE Stack_Size。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p189",
+          "page": 194
+        }
+      ]
+    },
+    {
+      "id": "F4-19",
+      "type": "fill",
+      "chapter": 4,
+      "title": "LDR R0,=0x40000000 中带等号的形式属于加载常数的[[1]]指令。",
+      "prompt": "LDR R0,=0x40000000 中带等号的形式属于加载常数的[[1]]指令。",
+      "answers": [
+        [
+          "伪",
+          "伪指令"
+        ]
+      ],
+      "explain": "汇编器可能用文字池或其他合适指令实现。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p181-182",
+          "page": 186
+        }
+      ]
+    },
+    {
+      "id": "F4-20",
+      "type": "fill",
+      "chapter": 4,
+      "title": "按课程常用调用规则，前四个整型参数依次放在 R0、R1、R2、[[1]]。",
+      "prompt": "按课程常用调用规则，前四个整型参数依次放在 R0、R1、R2、[[1]]。",
+      "answers": [
+        [
+          "R3"
+        ]
+      ],
+      "explain": "调用者不能假定 R0-R3 在调用后保持原值。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p207-209",
+          "page": 212
+        }
+      ]
+    },
+    {
+      "id": "F4-21",
+      "type": "fill",
+      "chapter": 4,
+      "title": "普通 32 位整型函数返回值通常放在[[1]]寄存器。",
+      "prompt": "普通 32 位整型函数返回值通常放在[[1]]寄存器。",
+      "answers": [
+        [
+          "R0"
+        ]
+      ],
+      "explain": "64 位返回有不同规则；本题限定普通 32 位值。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p207-209",
+          "page": 212
+        }
+      ]
+    },
+    {
+      "id": "F4-22",
+      "type": "fill",
+      "chapter": 4,
+      "title": "函数借用 R4-R7 等被调用者保存寄存器后，返回前必须将它们[[1]]。",
+      "prompt": "函数借用 R4-R7 等被调用者保存寄存器后，返回前必须将它们[[1]]。",
+      "answers": [
+        [
+          "恢复",
+          "恢复原值",
+          "还原"
+        ]
+      ],
+      "explain": "用 PUSH/POP 等方式满足保存约定；跨 C 调用还须注意栈对齐。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第4章 · 正文 p207-209",
+          "page": 212
+        }
+      ]
+    },
+    {
+      "id": "F5-01",
+      "type": "fill",
+      "chapter": 5,
+      "title": "在典型主从式总线系统中，处理器通常作为[[1]]方主动发起传输。",
+      "prompt": "在典型主从式总线系统中，处理器通常作为[[1]]方主动发起传输。",
+      "answers": [
+        [
+          "主机",
+          "主设备",
+          "主动发起"
+        ]
+      ],
+      "explain": "从机可请求服务，但不能以从机身份主动发起总线事务。",
+      "origin": "真题改编",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p217-220",
+          "page": 222
+        },
+        {
+          "label": "往届 A 卷 · 填空题"
+        }
+      ]
+    },
+    {
+      "id": "F5-02",
+      "type": "fill",
+      "chapter": 5,
+      "title": "地址总线在本课程单主机系统中，由[[1]]发送地址到从机。",
+      "prompt": "地址总线在本课程单主机系统中，由[[1]]发送地址到从机。",
+      "answers": [
+        [
+          "主机",
+          "CPU",
+          "处理器",
+          "主设备"
+        ]
+      ],
+      "explain": "读数据从从机流向主机，写数据反向。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p217-220",
+          "page": 222
+        }
+      ]
+    },
+    {
+      "id": "F5-03",
+      "type": "fill",
+      "chapter": 5,
+      "title": "同步总线使用共同的[[1]]信号协调传输。",
+      "prompt": "同步总线使用共同的[[1]]信号协调传输。",
+      "answers": [
+        [
+          "时钟"
+        ]
+      ],
+      "explain": "异步总线通过握手协调不同速度的设备。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p221-224",
+          "page": 226
+        }
+      ]
+    },
+    {
+      "id": "F5-04",
+      "type": "fill",
+      "chapter": 5,
+      "title": "异步总线主要通过请求与应答等[[1]]信号协调传输。",
+      "prompt": "异步总线主要通过请求与应答等[[1]]信号协调传输。",
+      "answers": [
+        [
+          "握手",
+          "联络"
+        ]
+      ],
+      "explain": "总线异步与串行异步的起止位概念应区分。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p223-224",
+          "page": 228
+        }
+      ]
+    },
+    {
+      "id": "F5-05",
+      "type": "fill",
+      "chapter": 5,
+      "title": "半同步总线可通过插入[[1]]状态适应慢设备。",
+      "prompt": "半同步总线可通过插入[[1]]状态适应慢设备。",
+      "answers": [
+        [
+          "等待",
+          "等待状态"
+        ]
+      ],
+      "explain": "总线有时钟，并允许传输延长。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p224",
+          "page": 229
+        }
+      ]
+    },
+    {
+      "id": "F5-06",
+      "type": "fill",
+      "chapter": 5,
+      "title": "AHB-Lite 传输分为[[1]]相位与[[2]]相位。",
+      "prompt": "AHB-Lite 传输分为[[1]]相位与[[2]]相位。",
+      "answers": [
+        [
+          "地址"
+        ],
+        [
+          "数据"
+        ]
+      ],
+      "explain": "单笔事务至少跨两个相位；流水重叠时不等于每笔吞吐都要两个周期。",
+      "origin": "复习课件例题",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p226-227",
+          "page": 231
+        },
+        {
+          "label": "期末复习总结 · 填空例题与答案",
+          "page": 18
+        }
+      ]
+    },
+    {
+      "id": "F5-07",
+      "type": "fill",
+      "chapter": 5,
+      "title": "AHB-Lite 的 HWRITE=1 表示[[1]]操作。",
+      "prompt": "AHB-Lite 的 HWRITE=1 表示[[1]]操作。",
+      "answers": [
+        [
+          "写",
+          "写入"
+        ]
+      ],
+      "explain": "HWRITE=0 表示读。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p225-226",
+          "page": 230
+        }
+      ]
+    },
+    {
+      "id": "F5-08",
+      "type": "fill",
+      "chapter": 5,
+      "title": "AHB-Lite 的 HREADY=0 表示传输进入[[1]]状态。",
+      "prompt": "AHB-Lite 的 HREADY=0 表示传输进入[[1]]状态。",
+      "answers": [
+        [
+          "等待",
+          "等待状态"
+        ]
+      ],
+      "explain": "应保持当前传输直到可完成；不能把等待当作完成。",
+      "origin": "真题改编",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p226-227",
+          "page": 231
+        },
+        {
+          "label": "往届 A 卷 · 填空题"
+        }
+      ]
+    },
+    {
+      "id": "F5-09",
+      "type": "fill",
+      "chapter": 5,
+      "title": "HTRANS 的 NONSEQ 编码为二进制[[1]]。",
+      "prompt": "HTRANS 的 NONSEQ 编码为二进制[[1]]。",
+      "answers": [
+        [
+          "10",
+          "0b10",
+          "2'b10"
+        ]
+      ],
+      "explain": "HTRANS[1]=1 表示 NONSEQ 或 SEQ 有效传输；IDLE/BUSY 不应当成有效访问。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p225-226",
+          "page": 230
+        }
+      ]
+    },
+    {
+      "id": "F5-10",
+      "type": "fill",
+      "chapter": 5,
+      "title": "在 AHB-Lite 中，32 位字传输对应 HSIZE 的十进制值[[1]]。",
+      "prompt": "在 AHB-Lite 中，32 位字传输对应 HSIZE 的十进制值[[1]]。",
+      "answers": [
+        [
+          "2"
+        ]
+      ],
+      "explain": "HSIZE 是每次传输字节数的 log2，2 对应 4 字节。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p225-226",
+          "page": 230
+        }
+      ]
+    },
+    {
+      "id": "F5-11",
+      "type": "fill",
+      "chapter": 5,
+      "title": "地址空间是地址[[1]]的集合。",
+      "prompt": "地址空间是地址[[1]]的集合。",
+      "answers": [
+        [
+          "编码",
+          "地址编码"
+        ]
+      ],
+      "explain": "地址空间不是“已安装的物理 RAM 容量”。",
+      "origin": "真题改编",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p228-229",
+          "page": 233
+        },
+        {
+          "label": "往届 A 卷 · 填空题"
+        }
+      ]
+    },
+    {
+      "id": "F5-12",
+      "type": "fill",
+      "chapter": 5,
+      "title": "32 位字节地址能够表示的地址空间大小为[[1]]GiB。",
+      "prompt": "32 位字节地址能够表示的地址空间大小为[[1]]GiB。",
+      "answers": [
+        [
+          "4"
+        ]
+      ],
+      "explain": "2^32 字节等于 4 GiB；并非一定有 4 GiB 实际存储器。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p229",
+          "page": 234
+        }
+      ]
+    },
+    {
+      "id": "F5-13",
+      "type": "fill",
+      "chapter": 5,
+      "title": "存储器与 I/O 使用同一套地址编码，称为[[1]]编址。",
+      "prompt": "存储器与 I/O 使用同一套地址编码，称为[[1]]编址。",
+      "answers": [
+        [
+          "统一",
+          "存储器映射",
+          "存储器映射IO"
+        ]
+      ],
+      "explain": "通过普通访存指令操作映射 I/O。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p228-229",
+          "page": 233
+        }
+      ]
+    },
+    {
+      "id": "F5-14",
+      "type": "fill",
+      "chapter": 5,
+      "title": "统一编址使 I/O 访问可以使用较丰富的[[1]]。",
+      "prompt": "统一编址使 I/O 访问可以使用较丰富的[[1]]。",
+      "answers": [
+        [
+          "寻址方式"
+        ]
+      ],
+      "explain": "不必为每类 I/O 另设计专用指令。",
+      "origin": "真题改编",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p229",
+          "page": 234
+        },
+        {
+          "label": "往届 A 卷 · 填空题"
+        }
+      ]
+    },
+    {
+      "id": "F5-15",
+      "type": "fill",
+      "chapter": 5,
+      "title": "在本课程未重定位的向量表中，地址 0x00000000 保存初始[[1]]值。",
+      "prompt": "在本课程未重定位的向量表中，地址 0x00000000 保存初始[[1]]值。",
+      "answers": [
+        [
+          "SP",
+          "MSP",
+          "栈指针",
+          "主栈指针"
+        ]
+      ],
+      "explain": "0x00000004 保存复位处理函数入口。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p230,239-240",
+          "page": 235
+        }
+      ]
+    },
+    {
+      "id": "F5-16",
+      "type": "fill",
+      "chapter": 5,
+      "title": "向量表基址为 0 时，HardFault 异常向量项位于 0x[[1]]。",
+      "prompt": "向量表基址为 0 时，HardFault 异常向量项位于 0x[[1]]。",
+      "answers": [
+        [
+          "0000000C",
+          "0C",
+          "C",
+          "0000000c"
+        ]
+      ],
+      "explain": "是向量项存放地址，不是固定的 HardFault 处理函数入口。",
+      "origin": "复习课件例题",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p230",
+          "page": 235
+        },
+        {
+          "label": "期末复习总结 · 填空例题与答案",
+          "page": 18
+        }
+      ]
+    },
+    {
+      "id": "F5-17",
+      "type": "fill",
+      "chapter": 5,
+      "title": "地址译码电路将地址编码转换成相应模块的[[1]]信号。",
+      "prompt": "地址译码电路将地址编码转换成相应模块的[[1]]信号。",
+      "answers": [
+        [
+          "片选",
+          "选择",
+          "使能",
+          "片选使能"
+        ]
+      ],
+      "explain": "低地址位还能选择模块内的具体寄存器。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p231-234",
+          "page": 236
+        }
+      ]
+    },
+    {
+      "id": "F5-18",
+      "type": "fill",
+      "chapter": 5,
+      "title": "若 HADDR[31:4]==28'h4000001，则该外设的起始字节地址是 0x[[1]]。",
+      "prompt": "若 HADDR[31:4]==28'h4000001，则该外设的起始字节地址是 0x[[1]]。",
+      "answers": [
+        [
+          "40000010"
+        ]
+      ],
+      "explain": "低 4 位未参与片选比较，该窗口覆盖 0x40000010-0x4000001F。",
+      "origin": "实验二",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p231-234",
+          "page": 236
+        },
+        {
+          "label": "实验二要求"
+        },
+        {
+          "label": "实验二寄存器与电平定义"
+        }
+      ]
+    },
+    {
+      "id": "F5-19",
+      "type": "fill",
+      "chapter": 5,
+      "title": "上述 16 字节窗口内，偏移 0x04 的 32 位寄存器地址为 0x[[1]]。",
+      "prompt": "上述 16 字节窗口内，偏移 0x04 的 32 位寄存器地址为 0x[[1]]。",
+      "answers": [
+        [
+          "40000014"
+        ]
+      ],
+      "explain": "基地址 0x40000010 加字节偏移 4。",
+      "origin": "实验二",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p231-234",
+          "page": 236
+        },
+        {
+          "label": "实验二要求"
+        },
+        {
+          "label": "实验二寄存器与电平定义"
+        }
+      ]
+    },
+    {
+      "id": "F5-20",
+      "type": "fill",
+      "chapter": 5,
+      "title": "AHB 写操作中，应先锁存地址相位信息，再在对应的[[1]]相位用 HWDATA 写目标寄存器。",
+      "prompt": "AHB 写操作中，应先锁存地址相位信息，再在对应的[[1]]相位用 HWDATA 写目标寄存器。",
+      "answers": [
+        [
+          "数据"
+        ]
+      ],
+      "explain": "不能拿下一笔地址配当前数据；实验三接口用 addr 与 wr_pending 配对。",
+      "origin": "实验三",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第5章 · 正文 p226-227",
+          "page": 231
+        },
+        {
+          "label": "实验三要求"
+        },
+        {
+          "label": "实验三加速器寄存器接口"
+        }
+      ]
+    },
+    {
+      "id": "F6-01",
+      "type": "fill",
+      "chapter": 6,
+      "title": "软件直接访问的接口寄存器，按作用通常分为数据端口、状态端口和[[1]]端口。",
+      "prompt": "软件直接访问的接口寄存器，按作用通常分为数据端口、状态端口和[[1]]端口。",
+      "answers": [
+        [
+          "控制"
+        ]
+      ],
+      "explain": "端口是寄存器等软件可访问对象，不等同于板上引脚。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p258-259",
+          "page": 263
+        }
+      ]
+    },
+    {
+      "id": "F6-02",
+      "type": "fill",
+      "chapter": 6,
+      "title": "程序查询方式在传输前由 CPU 读取接口的[[1]]寄存器。",
+      "prompt": "程序查询方式在传输前由 CPU 读取接口的[[1]]寄存器。",
+      "answers": [
+        [
+          "状态"
+        ]
+      ],
+      "explain": "外设准备好后再读写数据。",
+      "origin": "复习课件例题",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p262",
+          "page": 267
+        },
+        {
+          "label": "期末复习总结 · 填空例题与答案",
+          "page": 18
+        }
+      ]
+    },
+    {
+      "id": "F6-03",
+      "type": "fill",
+      "chapter": 6,
+      "title": "查询传输的接口硬件至少需要[[1]]端口和[[2]]端口。",
+      "prompt": "查询传输的接口硬件至少需要[[1]]端口和[[2]]端口。",
+      "answers": [
+        [
+          "状态"
+        ],
+        [
+          "数据"
+        ]
+      ],
+      "explain": "题目没有要求每个简单接口都必须有独立控制口。",
+      "origin": "真题改编",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p262",
+          "page": 267
+        },
+        {
+          "label": "往届 A 卷 · 填空题"
+        }
+      ]
+    },
+    {
+      "id": "F6-04",
+      "type": "fill",
+      "chapter": 6,
+      "title": "外设始终可接受访问、不需先检查状态的方式叫[[1]]传送。",
+      "prompt": "外设始终可接受访问、不需先检查状态的方式叫[[1]]传送。",
+      "answers": [
+        [
+          "无条件",
+          "无条件传送"
+        ]
+      ],
+      "explain": "课堂把实验二拨码与显示作为此方式的例子。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p259,261-262",
+          "page": 264
+        }
+      ]
+    },
+    {
+      "id": "F6-05",
+      "type": "fill",
+      "chapter": 6,
+      "title": "外设通过请求 CPU 暂停当前程序并执行服务程序来传输，属于程序[[1]]方式。",
+      "prompt": "外设通过请求 CPU 暂停当前程序并执行服务程序来传输，属于程序[[1]]方式。",
+      "answers": [
+        [
+          "中断",
+          "中断传送"
+        ]
+      ],
+      "explain": "外设发中断请求，不等于外设变成总线主机。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p263-266",
+          "page": 268
+        }
+      ]
+    },
+    {
+      "id": "F6-06",
+      "type": "fill",
+      "chapter": 6,
+      "title": "中断前程序正在使用的状态标志及相关寄存器内容称为[[1]]。",
+      "prompt": "中断前程序正在使用的状态标志及相关寄存器内容称为[[1]]。",
+      "answers": [
+        [
+          "现场"
+        ]
+      ],
+      "explain": "中断结束后应恢复，使被中断程序能够正确继续。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p264",
+          "page": 269
+        }
+      ]
+    },
+    {
+      "id": "F6-07",
+      "type": "fill",
+      "chapter": 6,
+      "title": "中断返回时主程序继续执行的位置称为中断[[1]]。",
+      "prompt": "中断返回时主程序继续执行的位置称为中断[[1]]。",
+      "answers": [
+        [
+          "断点"
+        ]
+      ],
+      "explain": "与调试器设置的断点含义不同。",
+      "origin": "教材巩固",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p264",
+          "page": 269
+        }
+      ]
+    },
+    {
+      "id": "F6-08",
+      "type": "fill",
+      "chapter": 6,
+      "title": "DMA 传完一批数据后常用[[1]]方式通知 CPU。",
+      "prompt": "DMA 传完一批数据后常用[[1]]方式通知 CPU。",
+      "answers": [
+        [
+          "中断",
+          "中断方式"
+        ]
+      ],
+      "explain": "批量数据搬运由 DMA 控制器承担。",
+      "origin": "真题改编",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p267-269",
+          "page": 272
+        },
+        {
+          "label": "往届 A 卷 · 填空题"
+        }
+      ]
+    },
+    {
+      "id": "F6-09",
+      "type": "fill",
+      "chapter": 6,
+      "title": "数码管动态显示通过依次选择不同[[1]]，利用视觉暂留显示多位数字。",
+      "prompt": "数码管动态显示通过依次选择不同[[1]]，利用视觉暂留显示多位数字。",
+      "answers": [
+        [
+          "位",
+          "数码管位",
+          "显示位"
+        ]
+      ],
+      "explain": "必须持续刷新；写一次位选不会自动完成软件扫描。",
+      "origin": "实验二",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p270-273",
+          "page": 275
+        },
+        {
+          "label": "实验二要求"
+        },
+        {
+          "label": "实验二寄存器与电平定义"
+        }
+      ]
+    },
+    {
+      "id": "F6-10",
+      "type": "fill",
+      "chapter": 6,
+      "title": "本实验二段选为高有效，位选为[[1]]有效。",
+      "prompt": "本实验二段选为高有效，位选为[[1]]有效。",
+      "answers": [
+        [
+          "低",
+          "低电平"
+        ]
+      ],
+      "explain": "以 code_def.h 的定义为准，不套用其他板卡电平。",
+      "origin": "实验二",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p270-273",
+          "page": 275
+        },
+        {
+          "label": "实验二要求"
+        },
+        {
+          "label": "实验二寄存器与电平定义"
+        }
+      ]
+    },
+    {
+      "id": "F6-11",
+      "type": "fill",
+      "chapter": 6,
+      "title": "实验二关闭四位数码管时，位选寄存器低四位应写 0x[[1]]。",
+      "prompt": "实验二关闭四位数码管时，位选寄存器低四位应写 0x[[1]]。",
+      "answers": [
+        [
+          "0F",
+          "F",
+          "0f",
+          "f"
+        ]
+      ],
+      "explain": "低有效位选全部为 1 时均关闭。",
+      "origin": "实验二",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p270-273",
+          "page": 275
+        },
+        {
+          "label": "实验二要求"
+        },
+        {
+          "label": "实验二寄存器与电平定义"
+        }
+      ]
+    },
+    {
+      "id": "F6-12",
+      "type": "fill",
+      "chapter": 6,
+      "title": "动态扫描改变段码前先关闭位选，主要用于减少显示[[1]]。",
+      "prompt": "动态扫描改变段码前先关闭位选，主要用于减少显示[[1]]。",
+      "answers": [
+        [
+          "重影",
+          "串影",
+          "鬼影"
+        ]
+      ],
+      "explain": "推荐“关位选→改段码→开目标位→保持”。",
+      "origin": "实验二",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p270-273",
+          "page": 275
+        },
+        {
+          "label": "实验二要求"
+        },
+        {
+          "label": "实验二寄存器与电平定义"
+        }
+      ]
+    },
+    {
+      "id": "F6-13",
+      "type": "fill",
+      "chapter": 6,
+      "title": "读取 8 位开关后，若输入为二进制 10000000，十进制显示应为[[1]]。",
+      "prompt": "读取 8 位开关后，若输入为二进制 10000000，十进制显示应为[[1]]。",
+      "answers": [
+        [
+          "128"
+        ]
+      ],
+      "explain": "实验二要求将无符号二进制转换成十进制显示。",
+      "origin": "实验二",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p270-273",
+          "page": 275
+        },
+        {
+          "label": "实验二要求"
+        },
+        {
+          "label": "实验二寄存器与电平定义"
+        }
+      ]
+    },
+    {
+      "id": "F6-14",
+      "type": "fill",
+      "chapter": 6,
+      "title": "加速器驱动通过写[[1]]寄存器发出启动、清除等命令。",
+      "prompt": "加速器驱动通过写[[1]]寄存器发出启动、清除等命令。",
+      "answers": [
+        [
+          "控制",
+          "CTRL"
+        ]
+      ],
+      "explain": "命令位含义取决于实际接口协议。",
+      "origin": "实验三",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p289-295",
+          "page": 294
+        },
+        {
+          "label": "实验三要求"
+        },
+        {
+          "label": "实验三加速器寄存器接口"
+        }
+      ]
+    },
+    {
+      "id": "F6-15",
+      "type": "fill",
+      "chapter": 6,
+      "title": "实验三 STATUS 中 BUSY、DONE、ERROR 依次位于 bit0、bit1、bit[[1]]。",
+      "prompt": "实验三 STATUS 中 BUSY、DONE、ERROR 依次位于 bit0、bit1、bit[[1]]。",
+      "answers": [
+        [
+          "2"
+        ]
+      ],
+      "explain": "DONE 的掩码为 2，ERROR 掩码为 4，不可写成位序号。",
+      "origin": "实验三",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p289-295",
+          "page": 294
+        },
+        {
+          "label": "实验三要求"
+        },
+        {
+          "label": "实验三加速器寄存器接口"
+        }
+      ]
+    },
+    {
+      "id": "F6-16",
+      "type": "fill",
+      "chapter": 6,
+      "title": "实验三 CTRL 的 ABORT 命令写入数值为[[1]]。",
+      "prompt": "实验三 CTRL 的 ABORT 命令写入数值为[[1]]。",
+      "answers": [
+        [
+          "2",
+          "0x2",
+          "0x02"
+        ]
+      ],
+      "explain": "bit1=1；开始前清旧状态，失败时中止，防止后续读到旧结果。",
+      "origin": "实验三",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p289-295",
+          "page": 294
+        },
+        {
+          "label": "实验三要求"
+        },
+        {
+          "label": "实验三加速器寄存器接口"
+        }
+      ]
+    },
+    {
+      "id": "F6-17",
+      "type": "fill",
+      "chapter": 6,
+      "title": "实验三 SIN_RESULT 的字节偏移为 0x[[1]]。",
+      "prompt": "实验三 SIN_RESULT 的字节偏移为 0x[[1]]。",
+      "answers": [
+        [
+          "0C",
+          "C",
+          "0c"
+        ]
+      ],
+      "explain": "基地址 0x40000000，SIN 位于 +0x0C，COS 位于 +0x10。",
+      "origin": "实验三",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p289-295",
+          "page": 294
+        },
+        {
+          "label": "实验三要求"
+        },
+        {
+          "label": "实验三加速器寄存器接口"
+        }
+      ]
+    },
+    {
+      "id": "F6-18",
+      "type": "fill",
+      "chapter": 6,
+      "title": "实验三驱动轮询必须设置次数上限，以避免外设故障导致程序[[1]]。",
+      "prompt": "实验三驱动轮询必须设置次数上限，以避免外设故障导致程序[[1]]。",
+      "answers": [
+        [
+          "死循环",
+          "无限等待",
+          "永久等待",
+          "卡死"
+        ]
+      ],
+      "explain": "每次循环应重新读取 STATUS，超时退出并清理。",
+      "origin": "实验三",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p289-295",
+          "page": 294
+        },
+        {
+          "label": "实验三要求"
+        },
+        {
+          "label": "实验三加速器寄存器接口"
+        }
+      ]
+    },
+    {
+      "id": "F6-19",
+      "type": "fill",
+      "chapter": 6,
+      "title": "实验三的 sin/cos 结果隐含三位小数，显示 0866 表示数值[[1]]。",
+      "prompt": "实验三的 sin/cos 结果隐含三位小数，显示 0866 表示数值[[1]]。",
+      "answers": [
+        [
+          "0.866",
+          ".866"
+        ]
+      ],
+      "explain": "结果页 DOT 关闭，负号由 LED2 指示。",
+      "origin": "实验三",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p289-295",
+          "page": 294
+        },
+        {
+          "label": "实验三要求"
+        },
+        {
+          "label": "实验三加速器寄存器接口"
+        }
+      ]
+    },
+    {
+      "id": "F6-20",
+      "type": "fill",
+      "chapter": 6,
+      "title": "实验三定点后处理使用[[1]]位中间值来完成乘 1000 等计算与舍入。",
+      "prompt": "实验三定点后处理使用[[1]]位中间值来完成乘 1000 等计算与舍入。",
+      "answers": [
+        [
+          "64"
+        ]
+      ],
+      "explain": "Q30 值乘 1000 可能超过 32 位；舍入为零时应关闭负号。",
+      "origin": "实验三",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材第6章 · 正文 p289-295",
+          "page": 294
+        },
+        {
+          "label": "实验三要求"
+        },
+        {
+          "label": "实验三加速器寄存器接口"
+        }
+      ]
+    },
+    {
+      "id": "P01",
+      "type": "program",
+      "chapter": 4,
+      "title": "统计二进制 1 的个数",
+      "prompt": "uint32_t count_ones(uint32_t n)：R0 传入任意 32 位无符号数，R0 返回其二进制 1 的个数。将往届固定 n=14 的代码改为可调用函数。",
+      "code": "AREA Count,CODE,READONLY\n        THUMB\n        EXPORT count_ones\ncount_ones PROC\n        MOVS R1,#0\nloop    CMP R0,#0\n        BEQ [[1]]\n        MOVS R2,R0\n        MOVS R3,#1\n        ANDS R2,[[2]],R3\n        BEQ skip\n        ADDS [[3]],R1,#1\nskip    LSRS R0,R0,[[4]]\n        B [[5]]\ndone    MOVS R0,R1\n        BX LR\n        ENDP\n        END",
+      "answers": [
+        [
+          "done"
+        ],
+        [
+          "R2"
+        ],
+        [
+          "R1"
+        ],
+        [
+          "#1"
+        ],
+        [
+          "loop"
+        ]
+      ],
+      "explain": "先掩码最低位再累加，逻辑右移后循环；用 BEQ 判断零，避免把最高位为 1 的无符号输入当负数提前结束。",
+      "origin": "真题改编",
+      "category": "纯汇编",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "往届 A 卷 · 编程 1"
+        },
+        {
+          "label": "教材 §4.1 · 位运算与移位",
+          "page": 171
+        }
+      ],
+      "checks": [
+        "n=0 → 0",
+        "n=14 → 3",
+        "n=0x80000000 → 1",
+        "n=0xFFFFFFFF → 32"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P02",
+      "type": "program",
+      "chapter": 4,
+      "title": "寻找 16 位最高有效位",
+      "prompt": "输入 R0 为 1-65535，返回最高位 1 的位序到 R0（最低位编号 0）。用 R1=15 从高位向低位扫描。",
+      "code": "AREA MSB,CODE,READONLY\n        THUMB\n        EXPORT highest_bit\nhighest_bit PROC\n        MOVS R1,[[1]]\n        LDR R2,[[2]]\nscan    MOVS R3,R0\n        ANDS R3,R3,R2\n        BNE [[3]]\n        SUBS R1,R1,#1\n        LSRS R2,R2,[[4]]\n        B [[5]]\nfound   MOVS R0,R1\n        BX LR\n        ENDP\n        END",
+      "answers": [
+        [
+          "#15"
+        ],
+        [
+          "=0x8000"
+        ],
+        [
+          "found"
+        ],
+        [
+          "#1"
+        ],
+        [
+          "scan"
+        ]
+      ],
+      "explain": "掩码从 bit15 开始，未命中则掩码与位序同时右移/减一。输入严格大于零；若扩展到零，需要另设返回约定。",
+      "origin": "课件改编",
+      "category": "纯汇编",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "期末复习总结 · 最高位例题",
+          "page": 21
+        }
+      ],
+      "checks": [
+        "1 → 0",
+        "12 → 3",
+        "0x8000 → 15"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P03",
+      "type": "program",
+      "chapter": 4,
+      "title": "拆分半字并按指定地址存储",
+      "prompt": "实验一的安全化变式：R0 为 32 位输入，高 16 位为 A，低 16 位为 B；R1 为有效且 4 字节对齐的目标 RAM 指针。计算 A+B×A，写入 *R1 并从 R0 返回（保留低 32 位）。",
+      "code": "AREA Pack,CODE,READONLY\n        THUMB\n        EXPORT calc_store\ncalc_store PROC\n        LSRS R2,R0,[[1]]\n        UXTH R3,[[2]]\n        MULS R3,[[3]],R3\n        ADDS R0,R2,R3\n        STR R0,[[4]]\n        BX [[5]]\n        ENDP\n        END",
+      "answers": [
+        [
+          "#16"
+        ],
+        [
+          "R0"
+        ],
+        [
+          "R2"
+        ],
+        [
+          "[R1]"
+        ],
+        [
+          "LR"
+        ]
+      ],
+      "explain": "LSRS 提取高半字，UXTH 提取低半字；Thumb 乘法这里使用目的寄存器与末操作数相同的形式。原实验按学号构造的地址未必对齐或落入 RAM，练习改为显式传入合法指针。",
+      "origin": "实验一改编",
+      "category": "纯汇编",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "实验一 · 任务1"
+        },
+        {
+          "label": "教材 §4.1 · 算术和访存",
+          "page": 167
+        }
+      ],
+      "checks": [
+        "0x00030004 → 15 且 *R1=15",
+        "0x00000009 → 0",
+        "0xFFFF0001 → 131070"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P04",
+      "type": "program",
+      "chapter": 4,
+      "title": "累加数组中的无符号字",
+      "prompt": "uint32_t sum_words(const uint32_t *p,uint32_t n)。R0=p，R1=n；n=0 返回 0，否则累计 n 个字，按模 2^32 返回。指针有效且字对齐。",
+      "code": "AREA Sum,CODE,READONLY\n        THUMB\n        EXPORT sum_words\nsum_words PROC\n        MOVS R2,#0\n        CMP R1,#0\n        BEQ finish\nloop    LDR R3,[[1]]\n        ADDS R2,R2,[[2]]\n        ADDS R0,R0,[[3]]\n        SUBS R1,R1,#1\n        [[4]] loop\nfinish  MOVS R0,[[5]]\n        BX LR\n        ENDP\n        END",
+      "answers": [
+        [
+          "[R0]"
+        ],
+        [
+          "R3"
+        ],
+        [
+          "#4"
+        ],
+        [
+          "BNE"
+        ],
+        [
+          "R2"
+        ]
+      ],
+      "explain": "每个元素为 4 字节。SUBS 与 BNE 之间不放更新标志的其他指令。",
+      "origin": "教材变式",
+      "category": "纯汇编",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材 §4.2.3 · 循环结构",
+          "page": 200
+        },
+        {
+          "label": "复习记录 · 37:45-44:22 程序填空要求"
+        }
+      ],
+      "checks": [
+        "n=0 → 0",
+        "[1,2,3] → 6",
+        "[0xFFFFFFFF,1] → 0"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P05",
+      "type": "program",
+      "chapter": 4,
+      "title": "减法式最大公约数",
+      "prompt": "uint32_t gcd_sub(uint32_t a,uint32_t b)。R0=a、R1=b，均为 1-65535；用反复相减求 GCD，R0 返回结果。比较均按无符号处理。",
+      "code": "AREA Gcd,CODE,READONLY\n        THUMB\n        EXPORT gcd_sub\ngcd_sub PROC\nloop    CMP R0,R1\n        BEQ [[1]]\n        [[2]] less\n        SUBS R0,R0,[[3]]\n        B loop\nless    SUBS R1,R1,[[4]]\n        B [[5]]\ndone    BX LR\n        ENDP\n        END",
+      "answers": [
+        [
+          "done"
+        ],
+        [
+          "BCC",
+          "BLO"
+        ],
+        [
+          "R1"
+        ],
+        [
+          "R0"
+        ],
+        [
+          "loop"
+        ]
+      ],
+      "explain": "a>b 时 a-=b，a<b 时 b-=a，直到相等；零输入未在合同中允许，不能拿此算法直接处理 a=0 或 b=0。",
+      "origin": "教材变式",
+      "category": "纯汇编",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材 §2.5.1 · GCD 算法",
+          "page": 114
+        },
+        {
+          "label": "教材 §6.3.2 · GCD 加速器",
+          "page": 294
+        }
+      ],
+      "checks": [
+        "48,18 → 6",
+        "7,7 → 7",
+        "15,4 → 1"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P06",
+      "type": "program",
+      "chapter": 4,
+      "title": "C 调汇编：斐波那契",
+      "prompt": "C 原型 uint32_t fibonacci(uint32_t a,uint32_t b,uint32_t n)。a=b=1，2≤n≤46；R0/R1/R2 传参，返回第 n 项。补全 ARMASM 结构和递推循环。",
+      "code": "[[1]] Fib,CODE,READONLY\n        THUMB\n        [[2]] fibonacci\nfibonacci PROC\n        SUBS R2,R2,[[3]]\n        BEQ done\nloop    ADDS R3,R0,[[4]]\n        MOVS R0,[[5]]\n        MOVS R1,[[6]]\n        SUBS R2,R2,[[7]]\n        [[8]] loop\ndone    MOVS R0,[[9]]\n        BX [[10]]\n        ENDP\n        END",
+      "answers": [
+        [
+          "AREA"
+        ],
+        [
+          "EXPORT",
+          "GLOBAL"
+        ],
+        [
+          "#2"
+        ],
+        [
+          "R1"
+        ],
+        [
+          "R1"
+        ],
+        [
+          "R3"
+        ],
+        [
+          "#1"
+        ],
+        [
+          "BNE"
+        ],
+        [
+          "R1"
+        ],
+        [
+          "LR"
+        ]
+      ],
+      "explain": "R0/R1 保存连续两项，R3 为新项，循环次数 n-2。课件举 F(50)，但其数学结果 12586269025 超过 32 位；本题限制 n≤46，消除有符号/无符号溢出歧义。",
+      "origin": "复习课件改编",
+      "category": "混合编程",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "期末复习总结 · Fibonacci 例题",
+          "page": 7
+        },
+        {
+          "label": "重点复习记录 · 01:14:50-01:21:46"
+        }
+      ],
+      "checks": [
+        "n=2 → 1",
+        "n=10 → 55",
+        "n=46 → 1836311903"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P07",
+      "type": "program",
+      "chapter": 4,
+      "title": "汇编调用 C：两日期间隔",
+      "prompt": "C 函数 int date_index(int year,int month,int day) 已实现，year=年份后两位；返回可相减的日期序号。汇编函数 gap_days(void) 计算 2023-06-15 减去 2000-01-01 的天数。C 函数按调用约定可改写 R0-R3。",
+      "code": "[[1]] DateGap,CODE,READONLY\n        THUMB\n        [[2]] date_index\n        EXPORT gap_days\ngap_days PROC\n        PUSH {R4,[[3]]}\n        MOVS R0,[[4]]\n        MOVS R1,[[5]]\n        MOVS R2,[[6]]\n        [[7]] date_index\n        MOVS R4,[[8]]\n        MOVS R0,#0\n        MOVS R1,#1\n        MOVS R2,#1\n        BL date_index\n        SUBS R0,[[9]],R0\n        POP {R4,[[10]]}\n        ENDP\n        END",
+      "answers": [
+        [
+          "AREA"
+        ],
+        [
+          "IMPORT",
+          "EXTERN"
+        ],
+        [
+          "LR"
+        ],
+        [
+          "#23"
+        ],
+        [
+          "#6"
+        ],
+        [
+          "#15"
+        ],
+        [
+          "BL"
+        ],
+        [
+          "R0"
+        ],
+        [
+          "R4"
+        ],
+        [
+          "PC"
+        ]
+      ],
+      "explain": "两次调用之间用被调用者保存寄存器 R4 保留首个结果。PUSH 两个寄存器共 8 字节，保持跨 C 调用的栈对齐。课件答案的“#R0”是笔误，应为 R0。",
+      "origin": "课件校订改编",
+      "category": "混合编程",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "期末复习总结 · 日期混合编程例题",
+          "page": 23
+        },
+        {
+          "label": "教材 §4.2.4 · 混合编程",
+          "page": 212
+        }
+      ],
+      "checks": [
+        "gap_days() → 8566 天"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P08",
+      "type": "program",
+      "chapter": 4,
+      "title": "递归阶乘与启动结构",
+      "prompt": "补全原卷风格的启动框架与 uint32_t factorial(uint32_t n)。输入 0≤n≤12；复位后计算 5!。Stack_Size=0x400，栈段 ALIGN=3。",
+      "code": "PRESERVE8\n        THUMB\nStack_Size EQU 0x400\n        AREA STACK,NOINIT,READWRITE,ALIGN=3\nStack_Mem [[1]] Stack_Size\n__initial_sp\n        AREA RESET,DATA,READONLY\n        EXPORT __Vectors\n__Vectors DCD [[2]]\n        DCD Reset_Handler\n        AREA Fact,CODE,READONLY\n        EXPORT factorial\nReset_Handler PROC\n        MOVS R0,#5\n        [[3]] factorial\nstop    B stop\n        ENDP\nfactorial PROC\n        PUSH {R4,[[4]]}\n        MOVS R4,[[5]]\n        [[6]] R4,#1\n        BLS base\n        SUBS R0,[[7]],#1\n        BL [[8]]\n        [[9]] R0,R4,R0\n        B ret\nbase    MOVS R0,#1\nret     POP {R4,[[10]]}\n        ENDP\n        END",
+      "answers": [
+        [
+          "SPACE"
+        ],
+        [
+          "__initial_sp"
+        ],
+        [
+          "BL"
+        ],
+        [
+          "LR"
+        ],
+        [
+          "R0"
+        ],
+        [
+          "CMP"
+        ],
+        [
+          "R4"
+        ],
+        [
+          "factorial"
+        ],
+        [
+          "MULS"
+        ],
+        [
+          "PC"
+        ]
+      ],
+      "explain": "保存 R4 和 LR；R4 在递归期间保存本层 n；基例 0! 与 1! 均为 1。返回值经 R0，POP PC 完成本层返回。",
+      "origin": "真题校订改编",
+      "category": "混合编程",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "往届 A 卷 · 编程2"
+        },
+        {
+          "label": "教材 §5.3.2 · 向量表与启动",
+          "page": 244
+        }
+      ],
+      "checks": [
+        "0 → 1",
+        "5 → 120",
+        "12 → 479001600"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P09",
+      "type": "program",
+      "chapter": 4,
+      "title": "实验一：汇编调用累加 C 函数并求商",
+      "prompt": "已给 C 函数 uint32_t add(uint32_t a)，返回 1+…+a。汇编函数 mean_sum(uint32_t a) 在 1≤a≤99 时计算 add(a)/a 的整数商。Cortex-M0 不使用 UDIV，改用重复减法。",
+      "code": "AREA Mean,CODE,READONLY\n        THUMB\n        [[1]] add\n        EXPORT mean_sum\nmean_sum PROC\n        [[2]] {R4,LR}\n        MOVS R4,[[3]]\n        [[4]] add\n        MOVS R1,[[5]]\ndivide  CMP R0,R4\n        [[6]] finish\n        SUBS R0,R0,[[7]]\n        ADDS R1,R1,[[8]]\n        B divide\nfinish  MOVS R0,[[9]]\n        POP {R4,[[10]]}\n        ENDP\n        END",
+      "answers": [
+        [
+          "IMPORT",
+          "EXTERN"
+        ],
+        [
+          "PUSH"
+        ],
+        [
+          "R0"
+        ],
+        [
+          "BL"
+        ],
+        [
+          "#0"
+        ],
+        [
+          "BCC",
+          "BLO"
+        ],
+        [
+          "R4"
+        ],
+        [
+          "#1"
+        ],
+        [
+          "R1"
+        ],
+        [
+          "PC"
+        ]
+      ],
+      "explain": "R4 保存除数以跨越 C 调用；余数放 R0，商放 R1。返回 floor((a+1)/2)，偶数 a 的结果要向下取整。",
+      "origin": "实验一改编",
+      "category": "混合编程",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "实验一 · 任务2"
+        },
+        {
+          "label": "实验一 · 已给 add C 函数"
+        }
+      ],
+      "checks": [
+        "a=1 → 1",
+        "a=12：B=78，返回6",
+        "a=23：B=276，返回12"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P10",
+      "type": "program",
+      "chapter": 4,
+      "title": "反复调用 C：6174 黑洞步数",
+      "prompt": "C 函数 uint32_t digitSort(uint32_t n) 已给：保留四位十进制（不足补零），降序数减升序数。输入为 0-9999 且至少两位不同。kap_steps 返回首次到达 6174 所需步数；输入已为 6174 时返回 0。",
+      "code": "AREA Kap,CODE,READONLY\n        THUMB\n        [[1]] digitSort\n        EXPORT kap_steps\nkap_steps PROC\n        PUSH {R4-R6,[[2]]}\n        MOVS R4,[[3]]\n        MOVS R5,[[4]]\n        LDR R6,[[5]]\nloop    CMP R4,R6\n        BEQ done\n        MOVS R0,[[6]]\n        [[7]] digitSort\n        MOVS R4,R0\n        ADDS R5,R5,[[8]]\n        B [[9]]\ndone    MOVS R0,R5\n        POP {R4-R6,[[10]]}\n        ENDP\n        END",
+      "answers": [
+        [
+          "IMPORT",
+          "EXTERN"
+        ],
+        [
+          "LR"
+        ],
+        [
+          "R0"
+        ],
+        [
+          "#0"
+        ],
+        [
+          "=6174"
+        ],
+        [
+          "R4"
+        ],
+        [
+          "BL"
+        ],
+        [
+          "#1"
+        ],
+        [
+          "loop"
+        ],
+        [
+          "PC"
+        ]
+      ],
+      "explain": "计数器放 R5，不能假设 R1 在 C 调用后不变；每做一次变换即加一，初值已等于目标则不调用。保存四个寄存器共16字节。课件原片段的 R1 计数、少算末步及栈对齐问题在此修正。",
+      "origin": "课件校订改编",
+      "category": "混合编程",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "第5讲 · PDF p53-55",
+          "page": 53
+        }
+      ],
+      "checks": [
+        "3524 → 3",
+        "6174 → 0",
+        "1000 → 5"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P11",
+      "type": "program",
+      "chapter": 4,
+      "title": "C 调汇编：安全容量下拼接字符串",
+      "prompt": "void append_text(const char *src,char *dst)。R0=src，R1=dst；两区不重叠，dst 容量足够且均有零结尾。将 src 拼到 dst 末尾并保留结尾零。用显式指针递增满足 Cortex-M0 指令形式。",
+      "code": "AREA Append,CODE,READONLY\n        THUMB\n        [[1]] append_text\nappend_text PROC\nseek    [[2]] R2,[R1]\n        CMP R2,[[3]]\n        BEQ copy\n        ADDS R1,R1,[[4]]\n        B seek\ncopy    LDRB R2,[[5]]\n        [[6]] R2,[R1]\n        ADDS R0,R0,#1\n        ADDS R1,R1,#1\n        CMP R2,[[7]]\n        [[8]] copy\n        [[9]] [[10]]\n        ENDP\n        END",
+      "answers": [
+        [
+          "EXPORT",
+          "GLOBAL"
+        ],
+        [
+          "LDRB"
+        ],
+        [
+          "#0"
+        ],
+        [
+          "#1"
+        ],
+        [
+          "[R0]"
+        ],
+        [
+          "STRB"
+        ],
+        [
+          "#0"
+        ],
+        [
+          "BNE"
+        ],
+        [
+          "BX"
+        ],
+        [
+          "LR"
+        ]
+      ],
+      "explain": "先找到 dst 的零字节，再逐字节复制 src，零也要复制。课件示例 char b[]=\"Hello\" 没有拼接余量；练习调用时应用 char b[32]=\"Hello\"。避免课件中 Thumb-2 风格的访存后索引写法。",
+      "origin": "课件校订改编",
+      "category": "混合编程",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "第5讲 · PDF p56-58",
+          "page": 56
+        }
+      ],
+      "checks": [
+        "src=\"World!\", dst=\"Hello\" → \"HelloWorld!\"",
+        "空 src：dst不变",
+        "空 dst：复制整个src"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P12",
+      "type": "program",
+      "chapter": 5,
+      "title": "GPIO 单次流水灯扫描",
+      "prompt": "接口由题面定义：GPIO_BASE=0x40010000，+0x00 为输出数据，+0x04 为方向（bit=1 输出）；8 个 LED 高有效。C 函数 delay_c(uint32_t ticks) 已给。led_scan 完成 01→02→…→80 后熄灭返回；不要求精准延时。",
+      "code": "AREA Led,CODE,READONLY\n        THUMB\n        [[1]] delay_c\n        EXPORT led_scan\nled_scan PROC\n        PUSH {R4-R6,[[2]]}\n        LDR R4,[[3]]\n        MOVS R0,[[4]]\n        STR R0,[R4,#4]\n        MOVS R5,#1\n        MOVS R6,[[5]]\nloop    STR [[6]],[R4]\n        MOVS R0,#20\n        [[7]] delay_c\n        LSLS R5,R5,[[8]]\n        SUBS R6,R6,#1\n        [[9]] loop\n        MOVS R0,#0\n        STR R0,[R4]\n        POP {R4-R6,[[10]]}\n        ENDP\n        END",
+      "answers": [
+        [
+          "IMPORT",
+          "EXTERN"
+        ],
+        [
+          "LR"
+        ],
+        [
+          "=0x40010000"
+        ],
+        [
+          "#0xFF",
+          "#255"
+        ],
+        [
+          "#8"
+        ],
+        [
+          "R5"
+        ],
+        [
+          "BL"
+        ],
+        [
+          "#1"
+        ],
+        [
+          "BNE"
+        ],
+        [
+          "PC"
+        ]
+      ],
+      "explain": "R4-R6 在 C 调用后保持不变，保存基地址、位图与循环计数。方向定义和电平只用于本题，不套用实验二。",
+      "origin": "教材与真题变式",
+      "category": "软硬件综合",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "教材 §5.4.2 · GPIO 流水灯",
+          "page": 258
+        },
+        {
+          "label": "往届 A 卷 · 编程3 GPIO背景"
+        }
+      ],
+      "checks": [
+        "数据写序列：1,2,4,8,16,32,64,128,0",
+        "delay_c 调用8次"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P13",
+      "type": "program",
+      "chapter": 6,
+      "title": "PWM 周期与 C 调用保护",
+      "prompt": "void pwm_once(uint32_t led,uint32_t duty)。输入 R0=LED位图，R1=0-100 占空比；高有效 GPIO 数据口为 0x40010000。delay_pwm_c(ticks) 已给，允许 ticks=0。先亮 duty，再灭 100-duty，完成一个概念 PWM 周期。",
+      "code": "AREA Pwm,CODE,READONLY\n        THUMB\n        [[1]] delay_pwm_c\n        EXPORT pwm_once\npwm_once PROC\n        PUSH {R4-R6,[[2]]}\n        MOVS R4,[[3]]\n        MOVS R5,[[4]]\n        LDR R6,[[5]]\n        STR R4,[[6]]\n        MOVS R0,R5\n        [[7]] delay_pwm_c\n        MOVS R0,#0\n        STR R0,[R6]\n        MOVS R0,[[8]]\n        SUBS R0,R0,[[9]]\n        BL delay_pwm_c\n        POP {R4-R6,[[10]]}\n        ENDP\n        END",
+      "answers": [
+        [
+          "IMPORT",
+          "EXTERN"
+        ],
+        [
+          "LR"
+        ],
+        [
+          "R0"
+        ],
+        [
+          "R1"
+        ],
+        [
+          "=0x40010000"
+        ],
+        [
+          "[R6]"
+        ],
+        [
+          "BL"
+        ],
+        [
+          "#100"
+        ],
+        [
+          "R5"
+        ],
+        [
+          "PC"
+        ]
+      ],
+      "explain": "把跨 C 调用要保留的变量放在 R4-R6，入栈16字节保持8字节对齐。原卷 pwm_cycle 的 PUSH {LR} 后跨 C 调用未保持8字节对齐，本题修正。空循环与调用有开销，本题不承诺物理 PWM 精度。",
+      "origin": "真题校订改编",
+      "category": "软硬件综合",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "往届 A 卷 · 编程3 PWM"
+        },
+        {
+          "label": "教材 §4.2.4 · 混合编程",
+          "page": 212
+        }
+      ],
+      "checks": [
+        "duty=25：参数25、75，输出led后输出0",
+        "duty=0：参数0、100",
+        "duty=100：参数100、0"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P14",
+      "type": "program",
+      "chapter": 6,
+      "title": "实验二：开关值分解为三位十进制",
+      "prompt": "void switch_digits(uint8_t *out)。R0 指向至少3字节RAM，按百、十、个位写出数值0-9。SWITCH_DATA=0x40000000，仅低8位有效。不使用除法指令，采用重复减法。",
+      "code": "AREA Digits,CODE,READONLY\n        THUMB\n        EXPORT switch_digits\nswitch_digits PROC\n        LDR R1,[[1]]\n        LDR R1,[R1]\n        MOVS R2,[[2]]\n        ANDS R1,R1,R2\n        MOVS R2,#0\nhund    CMP R1,[[3]]\n        BCC hund_done\n        SUBS R1,R1,#100\n        ADDS R2,R2,#1\n        B hund\nhund_done STRB R2,[[4]]\n        MOVS R2,#0\ntens    CMP R1,[[5]]\n        [[6]] tens_done\n        SUBS R1,R1,[[7]]\n        ADDS R2,R2,#1\n        B tens\ntens_done STRB R2,[[8]]\n        STRB R1,[[9]]\n        BX [[10]]\n        ENDP\n        END",
+      "answers": [
+        [
+          "=0x40000000"
+        ],
+        [
+          "#255",
+          "#0xFF"
+        ],
+        [
+          "#100"
+        ],
+        [
+          "[R0]"
+        ],
+        [
+          "#10"
+        ],
+        [
+          "BCC",
+          "BLO"
+        ],
+        [
+          "#10"
+        ],
+        [
+          "[R0,#1]"
+        ],
+        [
+          "[R0,#2]"
+        ],
+        [
+          "LR"
+        ]
+      ],
+      "explain": "先屏蔽高24位，然后减100求百位，再减10求十位，剩余为个位。这里写出的是数字值，尚需段码表译码后才能送显示口。",
+      "origin": "实验二改编",
+      "category": "软硬件综合",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "实验二要求"
+        },
+        {
+          "label": "实验二 · 十进制转换与显示流程"
+        }
+      ],
+      "checks": [
+        "0 → [0,0,0]",
+        "128 → [1,2,8]",
+        "255 → [2,5,5]"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P15",
+      "type": "program",
+      "chapter": 6,
+      "title": "实验二：按段选与位选完成一帧扫描",
+      "prompt": "void scan_frame(const uint8_t *codes)。R0 指向百、十、个位的段码（已译码，表按输入定义提供）；SEG_LED=0x40000010，SEG_SEL=0x40000014，段高有效、位低有效。位选依次0x0B、0x0D、0x0E；delay_c(20)已给。本题统一显示三位，不消前导零。",
+      "code": "AREA Scan,CODE,READONLY\n        THUMB\n        IMPORT delay_c\n        EXPORT scan_frame\nscan_frame PROC\n        PUSH {R4-R6,LR}\n        SUB SP,SP,#8\n        MOVS R4,R0\n        LDR R5,[[1]]\n        ADR R6,selects\n        MOVS R0,#3\n        STR R0,[SP]\nnext    MOVS R0,[[2]]\n        STR R0,[R5,[[3]]]\n        [[4]] R0,[R4]\n        STR R0,[[5]]\n        LDRB R0,[R6]\n        STR R0,[R5,#4]\n        MOVS R0,#20\n        [[6]] delay_c\n        ADDS R4,R4,#1\n        ADDS R6,R6,#1\n        LDR R0,[SP]\n        SUBS R0,R0,[[7]]\n        STR R0,[SP]\n        [[8]] next\n        MOVS R0,#15\n        STR R0,[R5,#4]\n        ADD SP,SP,[[9]]\n        POP {R4-R6,[[10]]}\n        ALIGN\nselects DCB 0x0B,0x0D,0x0E\n        ENDP\n        END",
+      "answers": [
+        [
+          "=0x40000010"
+        ],
+        [
+          "#15",
+          "#0x0F"
+        ],
+        [
+          "#4"
+        ],
+        [
+          "LDRB"
+        ],
+        [
+          "[R5]"
+        ],
+        [
+          "BL"
+        ],
+        [
+          "#1"
+        ],
+        [
+          "BNE"
+        ],
+        [
+          "#8"
+        ],
+        [
+          "PC"
+        ]
+      ],
+      "explain": "栈上计数不能放易被 C 函数破坏的 R0-R3 中；STR 不改条件标志，SUBS 后的 BNE 仍读取其 Z。每次先关闭所有位，更新段码后再打开目标位。需由主循环反复调用实现持续显示。",
+      "origin": "实验二改编",
+      "category": "软硬件综合",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "实验二 · 地址和位选定义"
+        },
+        {
+          "label": "实验二 · 先关后开扫描"
+        }
+      ],
+      "checks": [
+        "每帧3次delay调用",
+        "段码按百、十、个顺序写入",
+        "最后SEG_SEL=0x0F"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P16",
+      "type": "program",
+      "chapter": 6,
+      "title": "实验三：带超时与清理的加速器驱动",
+      "prompt": "int trig_hw_run(int32_t angle,int32_t *s,int32_t *c)。R0/R1/R2传参，输出指针合法且字对齐。基址0x40000000；ANGLE +0、CTRL +4、STATUS +8、SIN +0x0C、COS +0x10；CTRL bit0 START、bit1 ABORT；STATUS bit0 BUSY、bit1 DONE、bit2 ERROR。成功返回0，超时-1，硬件错误-2；仅成功写输出，失败先ABORT。",
+      "code": "AREA Trig,CODE,READONLY\n        THUMB\n        EXPORT trig_hw_run\ntrig_hw_run PROC\n        PUSH {R4-R6,LR}\n        LDR R3,[[1]]\n        MOVS R6,[[2]]\n        STR R6,[R3,#4]\n        STR R0,[R3,[[3]]]\n        MOVS R6,#1\n        STR R6,[R3,#4]\n        LDR R5,=4096\npoll    LDR R4,[R3,[[4]]]\n        MOVS R6,[[5]]\n        TST R4,R6\n        BNE error\n        MOVS R6,[[6]]\n        TST R4,R6\n        BNE success\n        SUBS R5,R5,#1\n        [[7]] poll\n        MOVS R0,#1\n        RSBS R0,R0,#0\n        B cleanup\nerror   MOVS R0,#1\n        MVNS R0,R0\ncleanup MOVS R6,#2\n        STR R6,[R3,#4]\n        B ret\nsuccess LDR R6,[R3,[[8]]]\n        STR R6,[R1]\n        LDR R6,[R3,[[9]]]\n        STR R6,[R2]\n        MOVS R0,#0\nret     POP {R4-R6,[[10]]}\n        ENDP\n        END",
+      "answers": [
+        [
+          "=0x40000000"
+        ],
+        [
+          "#2"
+        ],
+        [
+          "#0"
+        ],
+        [
+          "#8"
+        ],
+        [
+          "#4"
+        ],
+        [
+          "#2"
+        ],
+        [
+          "BNE"
+        ],
+        [
+          "#0x0C",
+          "#12"
+        ],
+        [
+          "#0x10",
+          "#16"
+        ],
+        [
+          "PC"
+        ]
+      ],
+      "explain": "每次都读新 STATUS，先检查 ERROR 再检查 DONE；有限轮询避免卡死。启动前 ABORT 清旧完成标志，失败路径不覆盖调用者输出。角度是预处理后的Q30值，范围0到π/2；符号恢复及64位舍入由已给C函数负责。",
+      "origin": "实验三改编",
+      "category": "软硬件综合",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "实验三 · 任务2与任务3"
+        },
+        {
+          "label": "实验三 · AHB加速器寄存器"
+        },
+        {
+          "label": "实验三 · 汇编驱动接口"
+        }
+      ],
+      "checks": [
+        "DONE：R0=0，两个输出更新",
+        "ERROR：R0=-2，输出不变，CTRL最后写2",
+        "持续BUSY：4096次后-1并ABORT"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P17",
+      "type": "program",
+      "chapter": 6,
+      "title": "读 Verilog 译码后编写握手驱动",
+      "prompt": "读给定硬件片段，补全一次查询式交易。端口不等待，总线地址相位已锁存。reg_id=0为写入数据，1为控制（写1启动），2为状态（bit0完成），3为结果。接口调用：R0输入，R1输出指针；最多100次状态读取，返回0成功、-1超时。代码须依据译码算出窗口基址与寄存器字节偏移。",
+      "code": "; 已给硬件（只阅读，不填 Verilog）：\n; assign HSEL = (HADDR[31:8] == 24'h400003);\n; 地址相位：reg_id <= HADDR[3:2];\n; 数据相位case(reg_id)：0 DATA，1 CTRL，2 STATUS，3 RESULT\n        AREA Map,CODE,READONLY\n        THUMB\n        EXPORT mapped_run\nmapped_run PROC\n        LDR R2,[[1]]\n        STR R0,[R2,[[2]]]\n        MOVS R0,[[3]]\n        STR R0,[R2,[[4]]]\n        MOVS R3,#100\nwait    LDR R0,[R2,[[5]]]\n        LSRS R0,R0,#1\n        [[6]] ready\n        SUBS R3,R3,#1\n        BNE wait\n        MOVS R0,#1\n        RSBS R0,R0,#0\n        BX LR\nready   LDR R0,[R2,[[7]]]\n        STR R0,[[8]]\n        MOVS R0,[[9]]\n        BX [[10]]\n        ENDP\n        END",
+      "answers": [
+        [
+          "=0x40000300"
+        ],
+        [
+          "#0"
+        ],
+        [
+          "#1"
+        ],
+        [
+          "#4"
+        ],
+        [
+          "#8"
+        ],
+        [
+          "BCS",
+          "BHS"
+        ],
+        [
+          "#12",
+          "#0x0C"
+        ],
+        [
+          "[R1]"
+        ],
+        [
+          "#0"
+        ],
+        [
+          "LR"
+        ]
+      ],
+      "explain": "高24位译码对应256字节窗口；HADDR[3:2] 为字索引，地址需乘4。LSRS #1 把原 bit0 移入 C，BCS 判断完成。题设控制器在新启动时清 DONE；不能自动套用实验三的 ABORT 协议。",
+      "origin": "课堂要求变式",
+      "category": "软硬件综合",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "重点复习记录 · 39:45-44:22 读硬件写汇编"
+        },
+        {
+          "label": "实验三 · 地址相位/数据相位实例"
+        },
+        {
+          "label": "教材 §5.2 · 全译码与映射",
+          "page": 236
+        }
+      ],
+      "checks": [
+        "译码窗口0x40000300-0x400003FF",
+        "首次状态bit0=1：读+12写*R1，返回0",
+        "100次未完成：-1，*R1不变"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "P18",
+      "type": "program",
+      "chapter": 6,
+      "title": "中断方案：读取结果、清源与设置标志",
+      "prompt": "课堂拓展的中断方案，和实验三轮询方案分开。假定IRQ=1已正确使能并向量绑定：结果端口0x4000040C；清中断端口0x40000410写1后外设撤销IRQ。result与done是C端已定义的volatile uint32_t全局量。处理函数不调用其他函数，只用硬件自动堆栈的R0-R3；读取结果后清中断源，再置done=1并异常返回。",
+      "code": "AREA Irq,CODE,READONLY\n        THUMB\n        [[1]] result\n        IMPORT done\n        [[2]] ACC_IRQHandler\nACC_IRQHandler PROC\n        LDR R0,[[3]]\n        [[4]] R1,[R0]\n        LDR R2,[[5]]\n        STR R1,[[6]]\n        LDR R0,=0x40000410\n        MOVS R1,[[7]]\n        STR R1,[R0]\n        LDR R2,[[8]]\n        STR R1,[R2]\n        DSB\n        [[9]] [[10]]\n        ENDP\n        END",
+      "answers": [
+        [
+          "IMPORT",
+          "EXTERN"
+        ],
+        [
+          "EXPORT",
+          "GLOBAL"
+        ],
+        [
+          "=0x4000040C"
+        ],
+        [
+          "LDR"
+        ],
+        [
+          "=result"
+        ],
+        [
+          "[R2]"
+        ],
+        [
+          "#1"
+        ],
+        [
+          "=done"
+        ],
+        [
+          "BX"
+        ],
+        [
+          "LR"
+        ]
+      ],
+      "explain": "硬件保存基础现场；LR 此时为 EXC_RETURN 特殊值，BX LR触发异常返回。这里不额外PUSH且不BL，因此不会破坏该值；DSB确保清源访问完成后返回。软件完成标志不能代替清除外设中断源。地址与写1清除语义是本题另给的假设，不属于实验三现有接口。",
+      "origin": "课堂方案变式",
+      "category": "软硬件综合",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "重点复习记录 · 26:16-30:36 中断与加速器"
+        },
+        {
+          "label": "教材 §6.1.2 与 §6.3.2 · 中断",
+          "page": 268
+        }
+      ],
+      "checks": [
+        "返回前：result为硬件结果、done=1",
+        "对0x40000410写1撤销IRQ",
+        "BX LR使用EXC_RETURN恢复被中断程序"
+      ],
+      "notes": ""
+    }
+  ],
+  "basis": [
+    {
+      "label": "重点记录一 · 全课程知识回顾"
+    },
+    {
+      "label": "重点记录二 · 题型与程序填空要求"
+    },
+    {
+      "label": "期末复习总结课件"
+    },
+    {
+      "label": "2026版课程讲义"
+    },
+    {
+      "label": "往届带答案原卷"
+    },
+    {
+      "label": "实验一"
+    },
+    {
+      "label": "实验二"
+    },
+    {
+      "label": "实验三"
+    }
+  ],
+  "notes": [
+    "只编入普通填空和汇编程序填空，不含简答题。第二章作为读硬件的基础，编程不要求编写Verilog。",
+    "主线依据2026-10-19两份重点记录；复习提点不等于确定考点。本套为学习练习，不能预测试卷。",
+    "教材页码为正文印刷页，PDF页序=正文页+5。课件页码直接按PDF页序。每题保留来源。",
+    "题目用ARMASM课堂风格，面向Cortex-M0；程序变量、地址、电平和协议均以各题题面为准。",
+    "自动核对只识别参考答案及已列同义写法，不证明程序语义；等价写法可对照解析后自评。",
+    "已校订课件和现有试卷整理中的明显问题：软核“实现工艺”、F(50)溢出、#R0笔误、C调用寄存器保护、栈对齐、字符串容量与M0访存写法。",
+    "专项组卷只含15个普通填空+5/10/10个程序空，共80分，不包含原考试20分简答，不能作为完整模拟卷。"
+  ],
+  "sets": [
+    {
+      "name": "专项 A · 基础与 GPIO",
+      "fill": [
+        "F1-04",
+        "F1-09",
+        "F3-03",
+        "F3-06",
+        "F3-08",
+        "F3-13",
+        "F3-15",
+        "F3-16",
+        "F4-15",
+        "F4-21",
+        "F5-08",
+        "F5-11",
+        "F5-14",
+        "F6-02",
+        "F6-08"
+      ],
+      "program": [
+        "P01",
+        "P08",
+        "P13"
+      ]
+    },
+    {
+      "name": "专项 B · 调用与显示",
+      "fill": [
+        "F1-03",
+        "F2-03",
+        "F3-07",
+        "F3-09",
+        "F3-14",
+        "F3-17",
+        "F3-20",
+        "F4-13",
+        "F4-16",
+        "F4-20",
+        "F5-07",
+        "F5-15",
+        "F5-18",
+        "F6-10",
+        "F6-13"
+      ],
+      "program": [
+        "P03",
+        "P09",
+        "P15"
+      ]
+    },
+    {
+      "name": "专项 C · 综合与加速器",
+      "fill": [
+        "F1-06",
+        "F2-10",
+        "F3-05",
+        "F3-12",
+        "F3-18",
+        "F4-08",
+        "F4-11",
+        "F4-22",
+        "F5-09",
+        "F5-10",
+        "F5-17",
+        "F5-20",
+        "F6-15",
+        "F6-16",
+        "F6-18"
+      ],
+      "program": [
+        "P02",
+        "P10",
+        "P16"
+      ]
+    }
+  ]
+}</script>
+<script>
+'use strict';
+const BANK=JSON.parse(document.getElementById('bank').textContent), ALL=BANK.questions, BYID=Object.fromEntries(ALL.map(q=>[q.id,q]));
+const KEY='wq-practice-20261101-v1', $=s=>document.querySelector(s), esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let state={}, view={type:'fill',chapter:0,query:'',origin:'',wrong:false,star:false,page:1,set:null}, storageOK=true, session={elapsed:0,running:false};
+function validate(raw){const clean={};if(!raw||typeof raw!=='object'||Array.isArray(raw))throw Error('格式无效');for(const [id,s] of Object.entries(raw)){if(!BYID[id]||!s||typeof s!=='object')continue;const values={};for(let i=0;i<BYID[id].answers.length;i++){if(typeof s.values?.[i]==='string')values[i]=s.values[i].slice(0,500)}clean[id]={values,checked:s.checked===true,reveal:s.reveal===true,star:s.star===true,manual:s.manual===true,draft:typeof s.draft==='string'?s.draft.slice(0,30000):''}}return clean}
+try{const saved=localStorage.getItem(KEY);if(saved)state=validate(JSON.parse(saved))}catch(e){storageOK=false}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));storageOK=true}catch(e){storageOK=false}$('#storage-status').textContent=storageOK?'已自动保存到当前浏览器 · 更换浏览器或清除浏览器数据前，请导出备份。':'当前浏览器无法保存进度。仍可练习，请使用“导出进度备份”保存答案。'}
+function record(id){return state[id]||(state[id]={values:{},checked:false,reveal:false,star:false,manual:false,draft:''})}
+const norm=x=>String(x).normalize('NFKC').trim().toLowerCase().replace(/\s+/g,'').replace(/，/g,',');
+function matched(q,i){const value=norm(record(q.id).values[i]||'');return !!value&&q.answers[i].some(a=>norm(a)===value)}
+function correct(q){const s=record(q.id);return s.checked&&(s.manual||q.answers.every((_,i)=>matched(q,i)))}
+function filtered(){let list=ALL.filter(q=>(view.type==='all'||q.type===view.type)&&(!view.chapter||q.chapter===view.chapter)&&(!view.origin||q.origin.includes(view.origin))&&(!view.wrong||(record(q.id).checked&&!correct(q)))&&(!view.star||record(q.id).star)&&(!view.query||[q.id,q.title,q.prompt,q.origin,...q.sources.map(s=>s.label)].join(' ').toLowerCase().includes(view.query.toLowerCase())));if(view.set!==null){const ids=[...BANK.sets[view.set].fill,...BANK.sets[view.set].program];list=list.filter(q=>ids.includes(q.id));list.sort((a,b)=>ids.indexOf(a.id)-ids.indexOf(b.id))}return list}
+function refs(sources){return sources.map(s=>`<div>${esc(s.label)}${s.page?' · PDF 第 '+s.page+' 页':''}</div>`).join('')}
+function blank(q,i){let s=record(q.id),cls=s.checked?(matched(q,i)?' good':' bad'):'';return `<input class="blank${cls}" data-id="${q.id}" data-index="${i}" value="${esc(s.values[i]||'')}" aria-label="${q.id} 第${i+1}空" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${q.type==='fill'?'第'+(i+1)+'空':'填写答案'}">`}
+function solution(q){const s=record(q.id);return s.reveal?`<div class="solution"><strong>参考答案</strong><p>${q.answers.map((a,i)=>`<span>(${i+1}) <code>${esc(a[0])}</code>${a.length>1?'<small> / '+a.slice(1).map(esc).join(' / ')+'</small>':''}</span>`).join('　')}</p><p>${esc(q.explain)}</p>${q.code?'<details><summary>展开已填完整的参考程序</summary><pre class="codebox">'+esc(q.code.replace(/\[\[(\d+)\]\]/g,(_,n)=>q.answers[Number(n)-1][0]))+'</pre></details>':''}${q.checks?'<strong>手工验证案例</strong><ul>'+q.checks.map(c=>'<li>'+esc(c)+'</li>').join('')+'</ul>':''}<button class="small-btn" data-action="self" data-id="${q.id}">${s.manual?'撤销自评掌握':'等价写法已核实，标为掌握'}</button><p style="font-size:11px">自评会单独标注，不改变自动匹配结果。</p></div>`:''}
+function card(q){const s=record(q.id),hits=q.answers.filter((_,i)=>matched(q,i)).length;return `<article class="q-card" id="${q.id}" aria-label="${q.id}"><div class="q-meta"><div class="tags"><span class="q-id">${q.id}</span><span class="tag ${q.type==='program'?'code':''}">${esc(q.type==='program'?q.category:'第'+q.chapter+'章')}</span><span class="tag">${esc(q.origin)}</span><span class="tag">${q.answers.length} 空</span></div><button class="star ${s.star?'on':''}" data-action="star" data-id="${q.id}" aria-label="${s.star?'取消收藏':'收藏'} ${q.id}" aria-pressed="${s.star}">${s.star?'★':'☆'}</button></div>${q.type==='fill'?`<div class="question">${esc(q.prompt).replace(/\[\[(\d+)\]\]/g,(_,n)=>blank(q,Number(n)-1))}</div>`:`<h2>${esc(q.title)}</h2><p style="font-size:13px;line-height:1.9">${esc(q.prompt)}</p><pre class="codebox">${esc(q.code).replace(/\[\[(\d+)\]\]/g,(_,n)=>'<span class="slot">〔'+n+'〕______</span>')}</pre><div class="answers-grid">${q.answers.map((_,i)=>'<label class="answer-cell"><span class="num">'+(i+1)+'</span>'+blank(q,i)+'</label>').join('')}</div>`}<div class="actions"><button class="primary" data-action="check" data-id="${q.id}">核对答案</button><button data-action="reveal" data-id="${q.id}">${s.reveal?'收起解析':'查看答案与解析'}</button><span class="feedback" role="status">${s.checked?(s.manual?'已自评掌握 · 自动匹配 '+hits+'/'+q.answers.length:correct(q)?'✓ 全部匹配':'已匹配 '+hits+'/'+q.answers.length+' 空 · 待复习'):'填写后核对，或按 Enter 核对本题'}</span></div>${solution(q)}${q.notes?'<div class="note">'+esc(q.notes)+'</div>':''}<details class="source"><summary>查看题目来源</summary>${refs(q.sources)}</details>${q.type==='program'?'<details class="draft"><summary>展开草稿区 · 可记录寄存器规划和单步过程</summary><textarea data-draft="'+q.id+'" aria-label="'+q.id+' 草稿">'+esc(s.draft||'')+'</textarea></details>':''}</article>`}
+function stats(){const checked=ALL.filter(q=>record(q.id).checked),good=checked.filter(correct);$('#stat-done').textContent=checked.length;$('#stat-correct').textContent=good.length;$('#stat-wrong').textContent=checked.length-good.length}
+function renderNav(){$('#chapter-nav').innerHTML=`<button class="nav-item ${view.chapter===0?'active':''}" data-chapter="0"><span class="nav-num">ALL</span>全部章节</button>`+BANK.chapters.map((c,i)=>`<button class="nav-item ${view.chapter===i+1?'active':''}" data-chapter="${i+1}"><span class="nav-num">0${i+1}</span>${esc(c)}</button>`).join('')}
+function render(scroll=false){const list=filtered(),pages=Math.max(1,Math.ceil(list.length/8));view.page=Math.min(view.page,pages);const start=(view.page-1)*8;$('#question-list').innerHTML=list.length?list.slice(start,start+8).map(card).join(''):'<div class="empty">没有符合条件的题目。可以取消筛选，或先完成几道题。</div>';$('#result-count').textContent=`共 ${list.length} 道题 · ${list.reduce((n,q)=>n+q.answers.length,0)} 个空 · 当前 ${list.length?start+1:0}-${Math.min(start+8,list.length)} 题`;$('#view-title').textContent=view.set!==null?BANK.sets[view.set].name:(view.type==='fill'?'章节填空':view.type==='program'?'程序填空':'全部题目')+' · '+(view.chapter?'第'+view.chapter+'章':'全部章节');$('#page-info').textContent=`${view.page} / ${pages}`;$('#prev').disabled=view.page<=1;$('#next').disabled=view.page>=pages;$('#check-page').disabled=!list.length;document.querySelectorAll('[data-type]').forEach(b=>b.classList.toggle('active',b.dataset.type===view.type));renderNav();stats();renderSession();if(scroll)$('#view-title').scrollIntoView({behavior:'smooth',block:'start'})}
+function refreshCard(id){const node=document.getElementById(id);if(node)node.outerHTML=card(BYID[id]);stats();renderSession()}
+function check(id){const q=BYID[id],s=record(id);if(!q.answers.some((_,i)=>String(s.values[i]||'').trim())){const n=document.getElementById(id);n?.querySelector('input')?.focus();n.querySelector('.feedback').textContent='请先填写至少一个空。';return}s.checked=true;s.manual=false;save();refreshCard(id)}
+$('#question-list').addEventListener('input',e=>{if(e.target.dataset.id){const id=e.target.dataset.id,s=record(id);s.values[e.target.dataset.index]=e.target.value;s.checked=false;s.manual=false;document.getElementById(id).querySelectorAll('.blank').forEach(x=>x.classList.remove('good','bad'));document.getElementById(id).querySelector('.feedback').textContent='答案已修改，请重新核对。';save();stats();renderSession()}if(e.target.dataset.draft){record(e.target.dataset.draft).draft=e.target.value;save()}});
+$('#question-list').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.dataset.id){e.preventDefault();check(e.target.dataset.id)}});
+$('#question-list').addEventListener('click',e=>{const b=e.target.closest('button[data-action]');if(!b)return;const id=b.dataset.id,s=record(id);switch(b.dataset.action){case 'check':check(id);return;case 'star':s.star=!s.star;break;case 'reveal':s.reveal=!s.reveal;break;case 'self':s.manual=!s.manual;s.checked=true;break}save();refreshCard(id)});
+$('#type-tabs').onclick=e=>{const b=e.target.closest('[data-type]');if(!b)return;view.type=b.dataset.type;view.page=1;view.set=null;session.running=false;render()};
+$('#chapter-nav').onclick=e=>{const b=e.target.closest('[data-chapter]');if(!b)return;view.chapter=Number(b.dataset.chapter);view.type='fill';view.page=1;view.set=null;session.running=false;render(true)};
+$('#search').oninput=e=>{view.query=e.target.value;view.page=1;render()};$('#origin').onchange=e=>{view.origin=e.target.value;view.page=1;render()};$('#wrong-only').onchange=e=>{view.wrong=e.target.checked;view.page=1;render()};$('#star-only').onchange=e=>{view.star=e.target.checked;view.page=1;render()};
+$('#prev').onclick=()=>{view.page--;render(true)};$('#next').onclick=()=>{view.page++;render(true)};
+$('#check-page').onclick=()=>{filtered().slice((view.page-1)*8,view.page*8).forEach(q=>{const s=record(q.id);if(q.answers.some((_,i)=>String(s.values[i]||'').trim())){s.checked=true;s.manual=false}});save();render()};
+$('#guide').onclick=()=>$('#guide-dialog').showModal();$('#close-guide').onclick=()=>$('#guide-dialog').close();$('#guide-content').innerHTML=BANK.notes.map(n=>'<li>'+esc(n)+'</li>').join('');$('#basis').innerHTML=refs(BANK.basis);
+$('#set-select').innerHTML+=BANK.sets.map((s,i)=>'<option value="'+i+'">'+esc(s.name)+'</option>').join('');
+$('#start-set').onclick=()=>{const val=$('#set-select').value;if(val===''){alert('请先选择一套专项练习。');return}view={type:'all',chapter:0,query:'',origin:'',wrong:false,star:false,page:1,set:Number(val)};$('#search').value='';$('#origin').value='';$('#wrong-only').checked=false;$('#star-only').checked=false;session={elapsed:0,running:true};render(true)};
+function renderSession(){const panel=$('#set-panel');panel.classList.toggle('hidden',view.set===null);if(view.set===null)return;const set=BANK.sets[view.set],qs=[...set.fill,...set.program].map(i=>BYID[i]);let points=0;qs.forEach(q=>{const s=record(q.id);if(s.checked)points+=2*(s.manual?q.answers.length:q.answers.filter((_,i)=>matched(q,i)).length)});panel.innerHTML=`<div class="tools"><div><strong>${esc(set.name)}</strong><div class="count">每空 2 分 · ${points}/80 分（含已标注自评）· 保留并使用已有作答</div></div><div><span class="timer">${String(Math.floor(session.elapsed/60)).padStart(2,'0')}:${String(session.elapsed%60).padStart(2,'0')}</span> <button id="pause-timer" class="small-btn">${session.running?'暂停':'继续'}</button> <button id="exit-set" class="small-btn">退出组卷</button></div></div><div class="count">计时仅辅助安排练习，不限制答题；阅卷为参考匹配，非完整模拟考试。需重新作答可先导出备份，再清空进度。</div>`;$('#pause-timer').onclick=()=>{session.running=!session.running;renderSession()};$('#exit-set').onclick=()=>{view.set=null;session.running=false;view.page=1;render()}}
+let tick=Date.now();setInterval(()=>{const now=Date.now();if(session.running){session.elapsed+=Math.max(0,Math.round((now-tick)/1000));renderSession()}tick=now},1000);
+$('#export').onclick=()=>{const blob=new Blob([JSON.stringify({format:'wq-practice',version:1,exported:new Date().toISOString(),state},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='微处理器练习进度-'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),2000)};
+$('#import').onclick=()=>$('#import-file').click();$('#import-file').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{if(f.size>5000000)throw Error('备份文件过大');const raw=JSON.parse(await f.text());if(raw.format!=='wq-practice'||raw.version!==1)throw Error('不是本题库的进度备份');const next=validate(raw.state);if(!confirm('导入将覆盖当前浏览器的作答进度，是否继续？'))return;state=next;save();render();alert('进度已导入。')}catch(err){alert('导入失败：'+err.message)}finally{e.target.value=''}};
+$('#reset').onclick=()=>{if(confirm('清空所有答案、核对结果、收藏和草稿？建议先导出备份。')){state={};save();render()}};
+render();save();
+</script>
+</body></html>
