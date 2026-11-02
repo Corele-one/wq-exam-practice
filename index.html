@@ -2,10 +2,10 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="微处理器课程练习：104道分章填空、18道汇编程序填空，支持错题复习与进度备份。"><link rel="icon" href="data:,">
+<meta name="description" content="微处理器课程练习：104道分章填空、23道汇编程序填空，支持错题复习与进度备份。"><link rel="icon" href="data:,">
 <title>微处理器与嵌入式系统考试复习</title>
 <style>
-:root{--ink:#172d35;--muted:#63777c;--line:#dce6e4;--paper:#fff;--bg:#f4f7f5;--green:#116e61;--mint:#def1e9;--nav:#17363a;--amber:#a86b20;--red:#aa3c39;--mono:ui-monospace,SFMono-Regular,Consolas,monospace}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}button,input,select,textarea{font:inherit}button,a,input,select,textarea{outline-offset:4px}button{cursor:pointer;border:1px solid var(--line);background:#fff;border-radius:7px;padding:8px 13px;color:var(--ink)}button:hover{border-color:var(--green)}button:disabled{opacity:.4;cursor:default}button.active,.primary{background:var(--green);color:#fff;border-color:var(--green)}button:focus-visible,a:focus-visible{outline:3px solid #e0b967}a{color:var(--green);text-decoration:none}a:hover{text-decoration:underline}.app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}.side{background:var(--nav);color:#d2e4e1;padding:30px 22px;position:sticky;top:0;height:100vh;overflow:auto}.brand{font-size:23px;font-weight:730;letter-spacing:1px;color:#fff}.brand small{display:block;font-size:11px;letter-spacing:2px;color:#9bc0b8;font-weight:500;margin:4px 0 28px}.side-label{font-size:11px;letter-spacing:2px;color:#8db2ab;margin:26px 0 10px}.nav-item{display:block;width:100%;text-align:left;background:none;border:0;color:#d2e4e1;padding:11px 9px;margin:3px 0;font-size:13px;line-height:1.55}.nav-item.active{background:#315750;color:white}.nav-num{color:#83ada3;margin-right:10px;font-family:var(--mono)}.side .download{display:block;font-size:13px;padding:7px;color:#d7e8e3}.side-footer{border-top:1px solid #365356;font-size:11px;color:#a2bcb7;margin-top:25px;padding-top:15px}.main{max-width:1180px;padding:42px 48px;width:100%;margin:auto}.eyebrow{color:var(--green);font-size:11px;font-weight:700;letter-spacing:2px}h1{font-size:32px;margin:4px 0 9px;line-height:1.35;text-wrap:balance}h2{font-size:19px;margin:0}p{margin:8px 0}.intro{color:var(--muted);max-width:760px;font-size:14px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0}.stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 19px}.stat strong{font-size:26px;font-weight:650;line-height:1.3}.stat span{display:block;font-size:12px;color:var(--muted)}.toolbar{background:#fff;padding:18px;border:1px solid var(--line);border-radius:10px;margin:18px 0}.tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.tools+.tools{margin-top:12px}.seg{display:flex;gap:5px}.search{flex:1;min-width:180px}input[type=search],select{background:#f8faf9;border:1px solid var(--line);border-radius:6px;padding:8px 11px;color:var(--ink)}input[type=search]{width:100%}.check-label{font-size:13px;display:flex;gap:5px;align-items:center;white-space:nowrap}.results-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:24px 0 14px}.count{color:var(--muted);font-size:12px}.q-card{padding:25px 27px;border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:18px;box-shadow:0 2px 8px #17363a03}.q-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px}.tags{display:flex;gap:7px;flex-wrap:wrap;font-size:11px}.tag{background:#edf4f1;padding:2px 8px;border-radius:4px;color:#42675f}.tag.code{background:#fcf1df;color:#88602c}.q-id{font-family:var(--mono);color:var(--muted);font-size:12px}.star{border:0;padding:2px 7px;font-size:20px;color:#879993;line-height:1.5}.star.on{color:#bc8124}.question{font-size:16px;line-height:2.4;margin:8px 0 14px}.blank{border:1px solid #b9d0c9;background:#f6faf8;border-radius:5px;padding:4px 8px;width:170px;max-width:100%;color:var(--ink);font-family:inherit;line-height:1.7}.blank:focus{border-color:var(--green);background:#fff;outline:2px solid #b6dfd2}.blank.good{background:#edf8f1;border-color:#50a47b}.blank.bad{background:#fff1ed;border-color:#cd7b68}.status{font-size:12px;margin-left:5px}.goodtext{color:#18744c}.badtext{color:var(--red)}.codebox{background:#142d32;color:#d8e8e4;padding:20px;border-radius:8px;overflow:auto;font:12px/1.8 var(--mono);margin:15px 0;tab-size:4;white-space:pre}.slot{background:#40534e;color:#ffdf92;padding:2px 4px;border-radius:3px;font-weight:600}.answers-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:15px 0}.answer-cell{display:flex;align-items:center;gap:8px;font-size:12px}.answer-cell .blank{width:100%;min-width:0;font-family:var(--mono);font-size:13px}.num{color:var(--muted);font-family:var(--mono);width:21px;flex:none}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:15px}.actions button{font-size:12px}.feedback{font-size:12px;color:var(--muted)}.solution{background:#f2f8f4;padding:16px 18px;border-left:3px solid #629a7d;border-radius:3px;margin-top:16px;font-size:13px}.solution code{background:#e2eee7;padding:1px 5px;border-radius:3px;font-family:var(--mono)}.solution ul{padding-left:20px}.source{font-size:11px;color:var(--muted);margin-top:15px}.source summary{cursor:pointer}.source a{display:block;padding:2px 0}.note{padding:13px 17px;background:#fbf4e7;border-left:3px solid #d5b16a;color:#725c3e;font-size:12px;margin:14px 0;border-radius:4px}.draft{margin-top:16px;font-size:12px;color:var(--muted)}textarea{display:block;resize:vertical;width:100%;min-height:90px;border:1px solid var(--line);border-radius:6px;padding:10px;font:12px/1.6 var(--mono);margin-top:8px;background:#fafcfb}.pager{display:flex;justify-content:center;align-items:center;gap:16px;margin:28px 0}.empty{padding:45px;text-align:center;color:var(--muted);background:white;border:1px dashed var(--line);border-radius:10px}.footer{font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px;margin-top:30px}.small-btn{font-size:11px;padding:5px 9px}.set-panel{background:#e8f2ed;border:1px solid #bfd6c9;border-radius:8px;padding:15px;margin:18px 0}.set-panel .tools{justify-content:space-between}.timer{font-family:var(--mono);font-size:20px}.hidden{display:none!important}dialog{border:1px solid var(--line);border-radius:12px;max-width:750px;width:90%;padding:27px;color:var(--ink)}dialog::backdrop{background:#152e3480}dialog ul{padding-left:20px;font-size:13px}body{scroll-behavior:smooth}#storage-status{font-size:11px;color:var(--muted);margin-top:10px}
+:root{--ink:#172d35;--muted:#63777c;--line:#dce6e4;--paper:#fff;--bg:#f4f7f5;--green:#116e61;--mint:#def1e9;--nav:#17363a;--amber:#a86b20;--red:#aa3c39;--mono:ui-monospace,SFMono-Regular,Consolas,monospace}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}button,input,select,textarea{font:inherit}button,a,input,select,textarea{outline-offset:4px}button{cursor:pointer;border:1px solid var(--line);background:#fff;border-radius:7px;padding:8px 13px;color:var(--ink)}button:hover{border-color:var(--green)}button:disabled{opacity:.4;cursor:default}button.active,.primary{background:var(--green);color:#fff;border-color:var(--green)}button:focus-visible,a:focus-visible{outline:3px solid #e0b967}a{color:var(--green);text-decoration:none}a:hover{text-decoration:underline}.app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}.side{background:var(--nav);color:#d2e4e1;padding:30px 22px;position:sticky;top:0;height:100vh;overflow:auto}.brand{font-size:23px;font-weight:730;letter-spacing:1px;color:#fff}.brand small{display:block;font-size:11px;letter-spacing:2px;color:#9bc0b8;font-weight:500;margin:4px 0 28px}.side-label{font-size:11px;letter-spacing:2px;color:#8db2ab;margin:26px 0 10px}.nav-item{display:block;width:100%;text-align:left;background:none;border:0;color:#d2e4e1;padding:11px 9px;margin:3px 0;font-size:13px;line-height:1.55}.nav-item.active{background:#315750;color:white}.nav-num{color:#83ada3;margin-right:10px;font-family:var(--mono)}.side .download{display:block;font-size:13px;padding:7px;color:#d7e8e3}.side-footer{border-top:1px solid #365356;font-size:11px;color:#a2bcb7;margin-top:25px;padding-top:15px}.main{min-width:0;max-width:1180px;padding:42px 48px;width:100%;margin:auto}.eyebrow{color:var(--green);font-size:11px;font-weight:700;letter-spacing:2px}h1{font-size:32px;margin:4px 0 9px;line-height:1.35;text-wrap:balance}h2{font-size:19px;margin:0}p{margin:8px 0}.intro{color:var(--muted);max-width:760px;font-size:14px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0}.stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 19px}.stat strong{font-size:26px;font-weight:650;line-height:1.3}.stat span{display:block;font-size:12px;color:var(--muted)}.toolbar{background:#fff;padding:18px;border:1px solid var(--line);border-radius:10px;margin:18px 0}.tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.tools+.tools{margin-top:12px}.seg{display:flex;gap:5px}.search{flex:1;min-width:180px}input[type=search],select{background:#f8faf9;border:1px solid var(--line);border-radius:6px;padding:8px 11px;color:var(--ink)}input[type=search]{width:100%}.check-label{font-size:13px;display:flex;gap:5px;align-items:center;white-space:nowrap}.results-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:24px 0 14px}.count{color:var(--muted);font-size:12px}.q-card{padding:25px 27px;border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:18px;box-shadow:0 2px 8px #17363a03}.q-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px}.tags{display:flex;gap:7px;flex-wrap:wrap;font-size:11px}.tag{background:#edf4f1;padding:2px 8px;border-radius:4px;color:#42675f}.tag.code{background:#fcf1df;color:#88602c}.q-id{font-family:var(--mono);color:var(--muted);font-size:12px}.star{border:0;padding:2px 7px;font-size:20px;color:#879993;line-height:1.5}.star.on{color:#bc8124}.question{font-size:16px;line-height:2.4;margin:8px 0 14px}.blank{border:1px solid #b9d0c9;background:#f6faf8;border-radius:5px;padding:4px 8px;width:170px;max-width:100%;color:var(--ink);font-family:inherit;line-height:1.7}.blank:focus{border-color:var(--green);background:#fff;outline:2px solid #b6dfd2}.blank.good{background:#edf8f1;border-color:#50a47b}.blank.bad{background:#fff1ed;border-color:#cd7b68}.status{font-size:12px;margin-left:5px}.goodtext{color:#18744c}.badtext{color:var(--red)}.codebox{background:#142d32;color:#d8e8e4;padding:20px;border-radius:8px;overflow:auto;font:12px/1.8 var(--mono);margin:15px 0;tab-size:4;white-space:pre}.slot{background:#40534e;color:#ffdf92;padding:2px 4px;border-radius:3px;font-weight:600}.answers-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:15px 0}.answer-cell{display:flex;align-items:center;gap:8px;font-size:12px}.answer-cell .blank{width:100%;min-width:0;font-family:var(--mono);font-size:13px}.num{color:var(--muted);font-family:var(--mono);width:21px;flex:none}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:15px}.actions button{font-size:12px}.feedback{font-size:12px;color:var(--muted)}.solution{background:#f2f8f4;padding:16px 18px;border-left:3px solid #629a7d;border-radius:3px;margin-top:16px;font-size:13px}.solution code{background:#e2eee7;padding:1px 5px;border-radius:3px;font-family:var(--mono)}.solution ul{padding-left:20px}.source{font-size:11px;color:var(--muted);margin-top:15px}.source summary{cursor:pointer}.source a{display:block;padding:2px 0}.note{padding:13px 17px;background:#fbf4e7;border-left:3px solid #d5b16a;color:#725c3e;font-size:12px;margin:14px 0;border-radius:4px}.draft{margin-top:16px;font-size:12px;color:var(--muted)}textarea{display:block;resize:vertical;width:100%;min-height:90px;border:1px solid var(--line);border-radius:6px;padding:10px;font:12px/1.6 var(--mono);margin-top:8px;background:#fafcfb}.pager{display:flex;justify-content:center;align-items:center;gap:16px;margin:28px 0}.empty{padding:45px;text-align:center;color:var(--muted);background:white;border:1px dashed var(--line);border-radius:10px}.footer{font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px;margin-top:30px}.small-btn{font-size:11px;padding:5px 9px}.set-panel{background:#e8f2ed;border:1px solid #bfd6c9;border-radius:8px;padding:15px;margin:18px 0}.set-panel .tools{justify-content:space-between}.timer{font-family:var(--mono);font-size:20px}.hidden{display:none!important}dialog{border:1px solid var(--line);border-radius:12px;max-width:750px;width:90%;padding:27px;color:var(--ink)}dialog::backdrop{background:#152e3480}dialog ul{padding-left:20px;font-size:13px}body{scroll-behavior:smooth}#storage-status{font-size:11px;color:var(--muted);margin-top:10px}
 @media(max-width:1000px){.app{grid-template-columns:210px 1fr}.main{padding:30px 25px}.side{padding:25px 15px}.answers-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.app{display:block}.side{position:static;height:auto;padding:18px}.brand small{margin:0}.brand{font-size:20px}.side nav{display:flex;flex-wrap:wrap;gap:4px}.side .nav-item{width:auto;font-size:11px;padding:5px 8px}.side-label{margin:14px 0 6px}.side-footer,.side .downloads{display:none}.main{padding:24px 16px}h1{font-size:26px}.stats{grid-template-columns:repeat(2,1fr);gap:8px;margin:20px 0}.stat{padding:12px 15px}.q-card{padding:18px 16px}.question{font-size:15px}.answers-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.codebox{font-size:11px;padding:14px}.results-bar{align-items:flex-start}.blank{width:145px}.tools .seg button{font-size:12px}.toolbar{padding:13px}}
 @media print{.side,.toolbar,.actions,.star,.pager,.draft,.stats,.footer,.set-panel{display:none}.app{display:block}.main{padding:0}.q-card{break-inside:avoid;border:0;border-bottom:1px solid #ddd;box-shadow:none}.codebox{color:#000;background:#f4f4f4;white-space:pre-wrap}.blank{border:0;border-bottom:1px solid #777;background:white}.source{display:none}}
@@ -17,14 +17,14 @@
  <div class="brand">微处理器<span style="color:#d7b56b">.</span><small>PRACTICE WORKSPACE / 2026</small></div>
  <div class="side-label">按教材章节练习</div><nav id="chapter-nav" aria-label="章节"></nav>
  <div class="side-label downloads">纸笔练习</div><div class="downloads"><a class="download" href="pdf/微处理器_填空与编程练习册.pdf">↗ 下载练习册 PDF</a><a class="download" href="pdf/微处理器_参考答案与解析.pdf">↗ 下载答案解析 PDF</a></div>
- <div class="side-footer">围绕讲义、课堂与实践<br>先做题，再核对，再理解。<br>104 道填空 / 18 道程序填空</div>
+ <div class="side-footer">围绕讲义、课堂与实践<br>先做题，再核对，再理解。<br>104 道填空 / 23 道程序填空</div>
 </aside>
 <main class="main">
  <div class="eyebrow">UNDERSTAND · PRACTISE · REVIEW</div>
  <h1>微处理器与嵌入式系统考试复习</h1>
- <div class="stats"><div class="stat"><strong id="stat-total">122</strong><span>题目 · 263 个空</span></div><div class="stat"><strong id="stat-done">0</strong><span>已核对题目</span></div><div class="stat"><strong id="stat-correct">0</strong><span>已掌握题目</span></div><div class="stat"><strong id="stat-wrong">0</strong><span>待复习题目</span></div></div>
+ <div class="stats"><div class="stat"><strong id="stat-total">127</strong><span>题目 · 303 个空</span></div><div class="stat"><strong id="stat-done">0</strong><span>已核对题目</span></div><div class="stat"><strong id="stat-correct">0</strong><span>已掌握题目</span></div><div class="stat"><strong id="stat-wrong">0</strong><span>待复习题目</span></div></div>
  <div class="toolbar"><div class="tools"><div class="seg" id="type-tabs"><button data-type="fill" class="active">章节填空</button><button data-type="program">程序填空</button><button data-type="all">全部</button></div><label class="search"><span class="hidden">搜索题目</span><input id="search" type="search" placeholder="搜索知识点、题号或来源…" aria-label="搜索题目"></label></div>
- <div class="tools"><select id="origin" aria-label="题目来源"><option value="">全部来源</option><option value="真题">往届真题</option><option value="课件">课件例题</option><option value="实验一">实验一</option><option value="实验二">实验二</option><option value="实验三">实验三</option><option value="教材">教材巩固</option><option value="课堂">课堂变式</option></select><label class="check-label"><input id="wrong-only" type="checkbox">只看待复习</label><label class="check-label"><input id="star-only" type="checkbox">只看收藏</label><span style="flex:1"></span><button id="guide" class="small-btn">使用说明与校订</button></div>
+ <div class="tools"><select id="origin" aria-label="题目来源"><option value="">全部来源</option><option value="补充参考">补充参考与迁移题</option><option value="真题">往届真题</option><option value="课件">课件例题</option><option value="实验一">实验一</option><option value="实验二">实验二</option><option value="实验三">实验三</option><option value="教材">教材巩固</option><option value="课堂">课堂变式</option></select><label class="check-label"><input id="wrong-only" type="checkbox">只看待复习</label><label class="check-label"><input id="star-only" type="checkbox">只看收藏</label><span style="flex:1"></span><button id="guide" class="small-btn">使用说明与校订</button></div>
  <div class="tools"><select id="set-select" aria-label="选择专项组卷"><option value="">专项组卷 · 15 + 5/10/10 空</option></select><button id="start-set" class="small-btn">开始专项练习</button><span class="count">80 分专项练习，不含简答题</span></div></div>
  <div id="set-panel" class="set-panel hidden"></div>
  <div class="results-bar"><div><h2 id="view-title">章节填空 · 全部章节</h2><div class="count" id="result-count" aria-live="polite"></div></div><button id="check-page" class="small-btn">核对本页</button></div>
@@ -34,7 +34,7 @@
 <dialog id="guide-dialog"><h2>如何使用这套练习</h2><ul id="guide-content"></ul><h2 style="margin-top:20px">编排依据</h2><div id="basis" class="source"></div><p style="font-size:12px;color:var(--muted)">题库版本：2026-11-01 · 编号在网页、练习册与答案册中一致。</p><button id="close-guide" class="primary">开始练习</button></dialog>
 <script id="bank" type="application/json">{
   "version": 1,
-  "title": "微处理器 · 练习工作台",
+  "title": "微处理器与嵌入式系统考试复习",
   "chapters": [
     "片上系统设计方法概述",
     "硬件描述语言与数字系统基础",
@@ -2488,7 +2488,7 @@
           "loop"
         ]
       ],
-      "explain": "先掩码最低位再累加，逻辑右移后循环；用 BEQ 判断零，避免把最高位为 1 的无符号输入当负数提前结束。",
+      "explain": "先掩码最低位再累加，逻辑右移后循环；用 BEQ 判断零，避免把最高位为 1 的无符号输入当负数提前结束。 迁移到C调用时应先看函数原型，不能固定认为输入必须是R7或结果必须留在R5；P21给出同一统计目标的掩码扫描写法。",
       "origin": "真题改编",
       "category": "纯汇编",
       "priority": "主线",
@@ -2499,6 +2499,12 @@
         {
           "label": "教材 §4.1 · 位运算与移位",
           "page": 171
+        },
+        {
+          "label": "用户补充参考图5 · 另一种位统计约定"
+        },
+        {
+          "label": "用户补充参考图6 · 掩码扫描，可与P21对照"
         }
       ],
       "checks": [
@@ -2507,7 +2513,8 @@
         "n=0x80000000 → 1",
         "n=0xFFFFFFFF → 32"
       ],
-      "notes": ""
+      "notes": "",
+      "c_example": "extern uint32_t count_ones(uint32_t n);\nuint32_t bits = count_ones(0x80007001u); /* bits=5 */"
     },
     {
       "id": "P02",
@@ -2742,7 +2749,8 @@
         "n=10 → 55",
         "n=46 → 1836311903"
       ],
-      "notes": ""
+      "notes": "",
+      "c_example": "extern uint32_t fibonacci(uint32_t a,uint32_t b,uint32_t n);\nuint32_t f = fibonacci(1u,1u,10u); /* f=55 */"
     },
     {
       "id": "P07",
@@ -2962,7 +2970,7 @@
           "PC"
         ]
       ],
-      "explain": "计数器放 R5，不能假设 R1 在 C 调用后不变；每做一次变换即加一，初值已等于目标则不调用。保存四个寄存器共16字节。课件原片段的 R1 计数、少算末步及栈对齐问题在此修正。",
+      "explain": "计数器放 R5，不能假设 R1 在 C 调用后不变；每做一次变换即加一，初值已等于目标则不调用。保存四个寄存器共16字节。课件原片段的 R1 计数、少算末步及栈对齐问题在此修正。 已给digitSort的内部排序不是本题填空目标；真正要跟踪的是参数送入R0、BL后结果取回、跨调用状态保存和步数定义。",
       "origin": "课件校订改编",
       "category": "混合编程",
       "priority": "主线",
@@ -2970,6 +2978,12 @@
         {
           "label": "第5讲 · PDF p53-55",
           "page": 53
+        },
+        {
+          "label": "用户补充参考图7 · 给定C函数digitSort"
+        },
+        {
+          "label": "用户补充参考图8 · 混合调用框架"
         }
       ],
       "checks": [
@@ -2977,7 +2991,8 @@
         "6174 → 0",
         "1000 → 5"
       ],
-      "notes": ""
+      "notes": "",
+      "c_example": "extern uint32_t kap_steps(uint32_t n);\nuint32_t steps = kap_steps(3524u); /* steps=3 */"
     },
     {
       "id": "P11",
@@ -3019,7 +3034,7 @@
           "LR"
         ]
       ],
-      "explain": "先找到 dst 的零字节，再逐字节复制 src，零也要复制。课件示例 char b[]=\"Hello\" 没有拼接余量；练习调用时应用 char b[32]=\"Hello\"。避免课件中 Thumb-2 风格的访存后索引写法。",
+      "explain": "先找到 dst 的零字节，再逐字节复制 src，零也要复制。课件示例 char b[]=\"Hello\" 没有拼接余量；练习调用时应用 char b[32]=\"Hello\"。避免课件中 Thumb-2 风格的访存后索引写法。 这里append_text的(src,dst)顺序沿用课程自定义函数，不能套用标准库strcat的(dst,src)顺序；也不使用strcat名称，以免与标准库原型冲突。",
       "origin": "课件校订改编",
       "category": "混合编程",
       "priority": "主线",
@@ -3027,6 +3042,12 @@
         {
           "label": "第5讲 · PDF p56-58",
           "page": 56
+        },
+        {
+          "label": "用户补充参考图9 · C调用者与缓冲容量"
+        },
+        {
+          "label": "用户补充参考图10 · 汇编字符串拼接框架"
         }
       ],
       "checks": [
@@ -3034,7 +3055,8 @@
         "空 src：dst不变",
         "空 dst：复制整个src"
       ],
-      "notes": ""
+      "notes": "",
+      "c_example": "extern void append_text(const char *src,char *dst);\nchar dst[32] = \"Hello\";\nappend_text(\"World!\",dst); /* dst=\"HelloWorld!\" */"
     },
     {
       "id": "P12",
@@ -3462,6 +3484,294 @@
         "BX LR使用EXC_RETURN恢复被中断程序"
       ],
       "notes": ""
+    },
+    {
+      "id": "P19",
+      "type": "program",
+      "chapter": 4,
+      "title": "C 调汇编：任意长度数组的升序检查",
+      "prompt": "C 原型 uint32_t is_sorted(const int32_t *a,uint32_t n)。检查非严格升序，返回1或0；比较按有符号32位数处理。R0=a，R1=n。n为0或1时返回1；n=0不解引用a，n>0时a指向至少n个有效且字对齐的元素。n=5对应参考题，函数也必须处理其他长度。",
+      "code": "AREA Sorted,CODE,READONLY\n        THUMB\n        EXPORT is_sorted\nis_sorted PROC\n        CMP R1,#1\n        BLS success\n        SUBS R1,R1,#1\n        LDR R2,[R0]\nloop    ADDS R0,R0,#4\n        LDR R3,[R0]\n        CMP R2,R3\n        [[1]] fail\n        MOVS R2,[[2]]\n        SUBS [[3]],R1,#1\n        [[4]] loop\nsuccess MOVS R0,[[5]]\n        BX LR\nfail    MOVS R0,#0\n        BX LR\n        ENDP\n        END",
+      "answers": [
+        [
+          "BGT"
+        ],
+        [
+          "R3"
+        ],
+        [
+          "R1"
+        ],
+        [
+          "BNE"
+        ],
+        [
+          "#1"
+        ]
+      ],
+      "explain": "指针参数通过R0传入的是首地址，n通过R1传入；每次LDR读取4字节，n个元素只需n-1次相邻比较。CMP R2,R3后BGT在“前项有符号大于后项”时失败，相等允许通过。R2须更新为当前项才能检查下一对。返回值写R0，BX LR回到C调用者；全程只借用R0-R3。",
+      "origin": "补充参考变式",
+      "category": "混合编程",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "用户补充参考图1 · 长度5的升序题意"
+        },
+        {
+          "label": "用户补充参考图2 · 相邻元素比较框架"
+        },
+        {
+          "label": "教材 §4.2.4 · C/汇编调用",
+          "page": 212
+        }
+      ],
+      "checks": [
+        "[]，n=0 → 1，允许a=NULL",
+        "[-3,-3,0,8,8] → 1",
+        "[1,3,2,4,5] → 0",
+        "[INT32_MIN,INT32_MAX] → 1"
+      ],
+      "notes": "",
+      "c_example": "extern uint32_t is_sorted(const int32_t *a,uint32_t n);\nint32_t a[] = {-3,-3,0,8,8};\nuint32_t ok = is_sorted(a,5u); /* ok=1 */"
+    },
+    {
+      "id": "P20",
+      "type": "program",
+      "chapter": 4,
+      "title": "C 调汇编：两个数组逐项取小取大",
+      "prompt": "C 原型 void split_minmax(uint32_t *a,uint32_t *b,uint32_t n)。将每对元素中较小值写回a[i]、较大值写回b[i]，按无符号32位数比较。R0=a、R1=b、R2=n；0≤n≤65535，两数组有效、字对齐且不重叠，n=0不访存。数组可写；参数指针的数值与数组元素内容不可混淆。",
+      "code": "AREA Pairwise,CODE,READONLY\n        THUMB\n        [[1]] split_minmax\nsplit_minmax PROC\n        PUSH {R4-R6,[[2]]}\n        LSLS R6,R2,[[3]]\n        MOVS R3,#0\n        CMP R2,#0\n        BEQ done\nloop    LDR R4,[[4]]\n        LDR R5,[R1,R3]\n        [[5]] R4,R5\n        [[6]] keep\n        STR R5,[[7]]\n        STR R4,[R1,R3]\nkeep    ADDS R3,R3,[[8]]\n        CMP R3,R6\n        [[9]] loop\ndone    POP {R4-R6,[[10]]}\n        ENDP\n        END",
+      "answers": [
+        [
+          "EXPORT",
+          "GLOBAL"
+        ],
+        [
+          "LR"
+        ],
+        [
+          "#2"
+        ],
+        [
+          "[R0,R3]"
+        ],
+        [
+          "CMP"
+        ],
+        [
+          "BLS"
+        ],
+        [
+          "[R0,R3]"
+        ],
+        [
+          "#4"
+        ],
+        [
+          "BCC",
+          "BLO"
+        ],
+        [
+          "PC"
+        ]
+      ],
+      "explain": "R3是字节偏移，R6=4n；两次LDR先取出两个旧值，再按a[i]>b[i]交换，避免提前写回丢失数据。BLS允许相等时跳过交换。借用了R4-R6，必须在返回C前恢复。此函数是void，结果通过两个数组的内存内容体现，不必把结果塞进R0。参考截图的DB文字与DCD代码不一致，本题明确使用uint32_t和4字节步长。",
+      "origin": "补充参考变式",
+      "category": "混合编程",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "用户补充参考图3 · 两数组对应位置比较"
+        },
+        {
+          "label": "用户补充参考图4 · 字数组与地址偏移框架"
+        },
+        {
+          "label": "教材 §4.2.4 · 调用与寄存器保存",
+          "page": 212
+        }
+      ],
+      "checks": [
+        "a=[12,35,0]，b=[24,25,0] → a=[12,25,0]，b=[24,35,0]",
+        "a=[0xFFFFFFFF]，b=[1] → a=[1]，b=[0xFFFFFFFF]",
+        "n=0：两数组均不访问",
+        "相等元素保持不变"
+      ],
+      "notes": "",
+      "c_example": "extern void split_minmax(uint32_t *a,uint32_t *b,uint32_t n);\nuint32_t a[] = {12,35,0}, b[] = {24,25,0};\nsplit_minmax(a,b,3u); /* a={12,25,0}, b={24,35,0} */"
+    },
+    {
+      "id": "P21",
+      "type": "program",
+      "chapter": 4,
+      "title": "C 调汇编：用移动掩码统计32位1",
+      "prompt": "C 原型 uint32_t count_mask(uint32_t value)。R0传入任意32位值，以1、2、4、…、0x80000000逐位测试，R0返回1的个数。输入数据放R2保持不变。仅填汇编；不能把参考题的“R7输入、R5输出”直接当成C调用规则。",
+      "code": "AREA MaskCount,CODE,READONLY\n        THUMB\n        EXPORT count_mask\ncount_mask PROC\n        MOVS R2,R0\n        MOVS R0,#0\n        MOVS R1,#1\nloop    MOVS R3,R2\n        ANDS R3,R3,R1\n        [[1]] next\n        ADDS R0,R0,[[2]]\nnext    LSLS R1,R1,[[3]]\n        [[4]] loop\n        BX [[5]]\n        ENDP\n        END",
+      "answers": [
+        [
+          "BEQ"
+        ],
+        [
+          "#1"
+        ],
+        [
+          "#1"
+        ],
+        [
+          "BNE"
+        ],
+        [
+          "LR"
+        ]
+      ],
+      "explain": "R1为扫描掩码，R2为不变输入，R0为累计结果。ANDS等于零则不计数；LSLS掩码后更新Z，BNE据此继续。最高位测试完成后掩码再左移会变为零，恰好终止32次扫描，不漏bit31。这里不能在LSLS与BNE之间插入改变标志的指令。与P01右移数据的实现有相同C接口思路但不同循环不变量。",
+      "origin": "补充参考变式",
+      "category": "混合编程",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "用户补充参考图5 · R7/R5位计数题意"
+        },
+        {
+          "label": "用户补充参考图6 · 移动掩码思路"
+        },
+        {
+          "label": "往届 A 卷 · 位统计背景"
+        }
+      ],
+      "checks": [
+        "0x80007001 → 5",
+        "0 → 0",
+        "0x80000000 → 1",
+        "0xFFFFFFFF → 32"
+      ],
+      "notes": "",
+      "c_example": "extern uint32_t count_mask(uint32_t value);\nuint32_t bits = count_mask(0x80007001u); /* bits=5 */"
+    },
+    {
+      "id": "P22",
+      "type": "program",
+      "chapter": 4,
+      "title": "迁移题：C 调汇编统计字符出现次数",
+      "prompt": "C 原型 uint32_t count_char(const char *s,uint32_t ch)。s为有效、零结尾的字符串；ch在0-255。仅统计终止零之前与ch相等的字节，不改写字符串；ch=0时返回0。R0=s，R1=ch；R0返回次数。例：count_char(\"banana\",'a')返回3。",
+      "code": "AREA CharCount,CODE,READONLY\n        THUMB\n        [[1]] count_char\ncount_char PROC\n        MOVS R2,[[2]]\nloop    [[3]] R3,[R0]\n        CMP R3,[[4]]\n        BEQ [[5]]\n        CMP R3,R1\n        [[6]] skip\n        ADDS R2,R2,[[7]]\nskip    ADDS R0,R0,[[8]]\n        B loop\ndone    MOVS R0,[[9]]\n        BX [[10]]\n        ENDP\n        END",
+      "answers": [
+        [
+          "EXPORT",
+          "GLOBAL"
+        ],
+        [
+          "#0"
+        ],
+        [
+          "LDRB"
+        ],
+        [
+          "#0"
+        ],
+        [
+          "done"
+        ],
+        [
+          "BNE"
+        ],
+        [
+          "#1"
+        ],
+        [
+          "#1"
+        ],
+        [
+          "R2"
+        ],
+        [
+          "LR"
+        ]
+      ],
+      "explain": "与字符串拼接同样接收指针、按字节遍历、识别结尾零，但本题不写内存。R0和R1分别承接C的两个实参；每个字符使用LDRB读取，指针加1。先判断终止零再判断目标字符，确保不把结尾零统计进去。算法变化后，C/汇编接口方法仍然相同。",
+      "origin": "补充参考变式",
+      "category": "混合编程",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "用户补充参考图9 · C调用汇编的字符串背景"
+        },
+        {
+          "label": "用户补充参考图10 · 字节访存与结尾零"
+        },
+        {
+          "label": "C调用汇编迁移题"
+        }
+      ],
+      "checks": [
+        "\"banana\"，ch='a' → 3",
+        "空字符串 → 0",
+        "\"abc\"，ch=0 → 0",
+        "\"aaaa\"，ch='z' → 0"
+      ],
+      "notes": "",
+      "c_example": "extern uint32_t count_char(const char *s,uint32_t ch);\nuint32_t n = count_char(\"banana\",(uint32_t)'a'); /* n=3 */"
+    },
+    {
+      "id": "P23",
+      "type": "program",
+      "chapter": 4,
+      "title": "迁移题：C 调汇编完成带容量的字符串复制",
+      "prompt": "C 原型 int32_t copy_z(const char *src,char *dst,uint32_t cap)。R0=src，R1=dst，R2=cap，0≤cap≤65535。src有效且零结尾，cap>0时dst至少有cap字节且不与src重叠。完整复制时返回字符数（不含结尾零）；空间不足返回-1，cap>0时仍保证dst零结尾。cap=0不写dst并返回-1。只填汇编，不填写C。",
+      "code": "AREA CopyZ,CODE,READONLY\n        THUMB\n        [[1]] copy_z\ncopy_z PROC\n        PUSH {R4,LR}\n        MOVS R4,[[2]]\n        CMP R2,[[3]]\n        BEQ fail\nloop    [[4]] R3,[R0]\n        CMP R3,#0\n        [[5]] terminate\n        CMP R2,[[6]]\n        BEQ truncated\n        [[7]] R3,[R1]\n        ADDS R0,R0,#1\n        ADDS R1,R1,#1\n        ADDS R4,R4,[[8]]\n        SUBS R2,R2,#1\n        B loop\nterminate STRB R3,[R1]\n        MOVS R0,[[9]]\n        B done\ntruncated MOVS R3,#0\n        STRB R3,[R1]\nfail    MOVS R0,#1\n        RSBS R0,R0,#0\ndone    POP {R4,[[10]]}\n        ENDP\n        END",
+      "answers": [
+        [
+          "EXPORT",
+          "GLOBAL"
+        ],
+        [
+          "#0"
+        ],
+        [
+          "#0"
+        ],
+        [
+          "LDRB"
+        ],
+        [
+          "BEQ"
+        ],
+        [
+          "#1"
+        ],
+        [
+          "STRB"
+        ],
+        [
+          "#1"
+        ],
+        [
+          "R4"
+        ],
+        [
+          "PC"
+        ]
+      ],
+      "explain": "cap必须包含结尾零所占的一字节。R4统计实际复制的非零字符，cap=1且源仍有字符时，仅能写零并返回-1。先识别源串终止零，再检查cap=1，可使“恰好放得下”的情况成功。R0负责返回状态/长度；dst内存承接字符串，二者不是同一种输出。R4为被调用者保存寄存器，已配对保护。",
+      "origin": "补充参考变式",
+      "category": "混合编程",
+      "priority": "主线",
+      "sources": [
+        {
+          "label": "用户补充参考图9 · 原题目标数组容量不足"
+        },
+        {
+          "label": "用户补充参考图10 · 从字节复制迁移到带容量接口"
+        }
+      ],
+      "checks": [
+        "src=\"abc\"，cap=4 → dst=\"abc\"，返回3",
+        "src=\"abc\"，cap=3 → dst=\"ab\"，返回-1",
+        "src=\"\"，cap=1 → 空串，返回0",
+        "cap=0 → 不写dst，返回-1"
+      ],
+      "notes": "",
+      "c_example": "extern int32_t copy_z(const char *src,char *dst,uint32_t cap);\nchar dst[4];\nint32_t n = copy_z(\"abc\",dst,sizeof dst); /* n=3 */"
     }
   ],
   "basis": [
@@ -3574,6 +3884,31 @@
         "P10",
         "P16"
       ]
+    },
+    {
+      "name": "专项 D · C调用汇编迁移",
+      "fill": [
+        "F3-08",
+        "F3-09",
+        "F3-10",
+        "F3-17",
+        "F3-18",
+        "F4-03",
+        "F4-04",
+        "F4-09",
+        "F4-10",
+        "F4-11",
+        "F4-12",
+        "F4-15",
+        "F4-20",
+        "F4-21",
+        "F4-22"
+      ],
+      "program": [
+        "P19",
+        "P22",
+        "P20"
+      ]
     }
   ]
 }</script>
@@ -3593,7 +3928,7 @@ function filtered(){let list=ALL.filter(q=>(view.type==='all'||q.type===view.typ
 function refs(sources){return sources.map(s=>`<div>${esc(s.label)}${s.page?' · PDF 第 '+s.page+' 页':''}</div>`).join('')}
 function blank(q,i){let s=record(q.id),cls=s.checked?(matched(q,i)?' good':' bad'):'';return `<input class="blank${cls}" data-id="${q.id}" data-index="${i}" value="${esc(s.values[i]||'')}" aria-label="${q.id} 第${i+1}空" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${q.type==='fill'?'第'+(i+1)+'空':'填写答案'}">`}
 function solution(q){const s=record(q.id);return s.reveal?`<div class="solution"><strong>参考答案</strong><p>${q.answers.map((a,i)=>`<span>(${i+1}) <code>${esc(a[0])}</code>${a.length>1?'<small> / '+a.slice(1).map(esc).join(' / ')+'</small>':''}</span>`).join('　')}</p><p>${esc(q.explain)}</p>${q.code?'<details><summary>展开已填完整的参考程序</summary><pre class="codebox">'+esc(q.code.replace(/\[\[(\d+)\]\]/g,(_,n)=>q.answers[Number(n)-1][0]))+'</pre></details>':''}${q.checks?'<strong>手工验证案例</strong><ul>'+q.checks.map(c=>'<li>'+esc(c)+'</li>').join('')+'</ul>':''}<button class="small-btn" data-action="self" data-id="${q.id}">${s.manual?'撤销自评掌握':'等价写法已核实，标为掌握'}</button><p style="font-size:11px">自评会单独标注，不改变自动匹配结果。</p></div>`:''}
-function card(q){const s=record(q.id),hits=q.answers.filter((_,i)=>matched(q,i)).length;return `<article class="q-card" id="${q.id}" aria-label="${q.id}"><div class="q-meta"><div class="tags"><span class="q-id">${q.id}</span><span class="tag ${q.type==='program'?'code':''}">${esc(q.type==='program'?q.category:'第'+q.chapter+'章')}</span><span class="tag">${esc(q.origin)}</span><span class="tag">${q.answers.length} 空</span></div><button class="star ${s.star?'on':''}" data-action="star" data-id="${q.id}" aria-label="${s.star?'取消收藏':'收藏'} ${q.id}" aria-pressed="${s.star}">${s.star?'★':'☆'}</button></div>${q.type==='fill'?`<div class="question">${esc(q.prompt).replace(/\[\[(\d+)\]\]/g,(_,n)=>blank(q,Number(n)-1))}</div>`:`<h2>${esc(q.title)}</h2><p style="font-size:13px;line-height:1.9">${esc(q.prompt)}</p><pre class="codebox">${esc(q.code).replace(/\[\[(\d+)\]\]/g,(_,n)=>'<span class="slot">〔'+n+'〕______</span>')}</pre><div class="answers-grid">${q.answers.map((_,i)=>'<label class="answer-cell"><span class="num">'+(i+1)+'</span>'+blank(q,i)+'</label>').join('')}</div>`}<div class="actions"><button class="primary" data-action="check" data-id="${q.id}">核对答案</button><button data-action="reveal" data-id="${q.id}">${s.reveal?'收起解析':'查看答案与解析'}</button><span class="feedback" role="status">${s.checked?(s.manual?'已自评掌握 · 自动匹配 '+hits+'/'+q.answers.length:correct(q)?'✓ 全部匹配':'已匹配 '+hits+'/'+q.answers.length+' 空 · 待复习'):'填写后核对，或按 Enter 核对本题'}</span></div>${solution(q)}${q.notes?'<div class="note">'+esc(q.notes)+'</div>':''}<details class="source"><summary>查看题目来源</summary>${refs(q.sources)}</details>${q.type==='program'?'<details class="draft"><summary>展开草稿区 · 可记录寄存器规划和单步过程</summary><textarea data-draft="'+q.id+'" aria-label="'+q.id+' 草稿">'+esc(s.draft||'')+'</textarea></details>':''}</article>`}
+function card(q){const s=record(q.id),hits=q.answers.filter((_,i)=>matched(q,i)).length;return `<article class="q-card" id="${q.id}" aria-label="${q.id}"><div class="q-meta"><div class="tags"><span class="q-id">${q.id}</span><span class="tag ${q.type==='program'?'code':''}">${esc(q.type==='program'?q.category:'第'+q.chapter+'章')}</span><span class="tag">${esc(q.origin)}</span><span class="tag">${q.answers.length} 空</span></div><button class="star ${s.star?'on':''}" data-action="star" data-id="${q.id}" aria-label="${s.star?'取消收藏':'收藏'} ${q.id}" aria-pressed="${s.star}">${s.star?'★':'☆'}</button></div>${q.type==='fill'?`<div class="question">${esc(q.prompt).replace(/\[\[(\d+)\]\]/g,(_,n)=>blank(q,Number(n)-1))}</div>`:`<h2>${esc(q.title)}</h2><p style="font-size:13px;line-height:1.9">${esc(q.prompt)}</p>${q.c_example?'<p class="count">C 调用示例（已给，仅填写下面的汇编）</p><pre class="codebox">'+esc(q.c_example)+'</pre>':''}<pre class="codebox">${esc(q.code).replace(/\[\[(\d+)\]\]/g,(_,n)=>'<span class="slot">〔'+n+'〕______</span>')}</pre><div class="answers-grid">${q.answers.map((_,i)=>'<label class="answer-cell"><span class="num">'+(i+1)+'</span>'+blank(q,i)+'</label>').join('')}</div>`}<div class="actions"><button class="primary" data-action="check" data-id="${q.id}">核对答案</button><button data-action="reveal" data-id="${q.id}">${s.reveal?'收起解析':'查看答案与解析'}</button><span class="feedback" role="status">${s.checked?(s.manual?'已自评掌握 · 自动匹配 '+hits+'/'+q.answers.length:correct(q)?'✓ 全部匹配':'已匹配 '+hits+'/'+q.answers.length+' 空 · 待复习'):'填写后核对，或按 Enter 核对本题'}</span></div>${solution(q)}${q.notes?'<div class="note">'+esc(q.notes)+'</div>':''}<details class="source"><summary>查看题目来源</summary>${refs(q.sources)}</details>${q.type==='program'?'<details class="draft"><summary>展开草稿区 · 可记录寄存器规划和单步过程</summary><textarea data-draft="'+q.id+'" aria-label="'+q.id+' 草稿">'+esc(s.draft||'')+'</textarea></details>':''}</article>`}
 function stats(){const checked=ALL.filter(q=>record(q.id).checked),good=checked.filter(correct);$('#stat-done').textContent=checked.length;$('#stat-correct').textContent=good.length;$('#stat-wrong').textContent=checked.length-good.length}
 function renderNav(){$('#chapter-nav').innerHTML=`<button class="nav-item ${view.chapter===0?'active':''}" data-chapter="0"><span class="nav-num">ALL</span>全部章节</button>`+BANK.chapters.map((c,i)=>`<button class="nav-item ${view.chapter===i+1?'active':''}" data-chapter="${i+1}"><span class="nav-num">0${i+1}</span>${esc(c)}</button>`).join('')}
 function render(scroll=false){const list=filtered(),pages=Math.max(1,Math.ceil(list.length/8));view.page=Math.min(view.page,pages);const start=(view.page-1)*8;$('#question-list').innerHTML=list.length?list.slice(start,start+8).map(card).join(''):'<div class="empty">没有符合条件的题目。可以取消筛选，或先完成几道题。</div>';$('#result-count').textContent=`共 ${list.length} 道题 · ${list.reduce((n,q)=>n+q.answers.length,0)} 个空 · 当前 ${list.length?start+1:0}-${Math.min(start+8,list.length)} 题`;$('#view-title').textContent=view.set!==null?BANK.sets[view.set].name:(view.type==='fill'?'章节填空':view.type==='program'?'程序填空':'全部题目')+' · '+(view.chapter?'第'+view.chapter+'章':'全部章节');$('#page-info').textContent=`${view.page} / ${pages}`;$('#prev').disabled=view.page<=1;$('#next').disabled=view.page>=pages;$('#check-page').disabled=!list.length;document.querySelectorAll('[data-type]').forEach(b=>b.classList.toggle('active',b.dataset.type===view.type));renderNav();stats();renderSession();if(scroll)$('#view-title').scrollIntoView({behavior:'smooth',block:'start'})}
